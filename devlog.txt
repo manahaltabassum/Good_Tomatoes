@@ -38,3 +38,6 @@ MT :: 1:50PM  -- Started flask app
 AZ ::
 ==============================================================
 
+gordonL -- 2017-11-21 13:51:53
+pushed templates + static folder
+
