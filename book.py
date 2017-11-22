@@ -29,7 +29,7 @@ def advancedSearch(title, author):
     #return search(book_isbn)
 
 
-#print search('The+Fault+in+Our+Stars')
+print search('The+Fault+in+Our+Stars')
 #print advancedSearch('The Fault in Our Stars','John Green')
 #print advancedSearch('American Pastoral', 'Philip Roth')
 #print advancedSearch('we were liars','e lockhart')
