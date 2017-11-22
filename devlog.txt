@@ -41,3 +41,7 @@ AZ ::
 gordonL -- 2017-11-21 13:51:53
 pushed templates + static folder
 
+manahalT -- 2017-11-21 20:09:14
+
+worked on book.py
+
