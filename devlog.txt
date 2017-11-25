@@ -52,12 +52,10 @@ parabS -- 2017-11-25 14:42:56
 worked on movie.py
 
 manahalT -- 2017-11-25 15:01:35
-
 finished getReview method for books
 
-
-
 manahalT -- 2017-11-25 15:46:20
-
 added comments to book.py
 
+parabS -- 2017-11-25 18:49:15
+finished movie.py and commented
