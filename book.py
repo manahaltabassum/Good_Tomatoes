@@ -5,7 +5,6 @@ app_key = key.goodreads_key
 
 
 
-
 def search(query):
     url = 'https://www.goodreads.com/search/index.xml'
     q = query
@@ -90,6 +89,7 @@ def getReview(bookID):
     #print info
     d = xmltodict.parse(info)
     #print json.dumps(d, indent=2)
+    return d['GoodreadsResponse']['book']['reviews_widget']
     #return (d)
 
 
@@ -97,7 +97,7 @@ def getReview(bookID):
 #print getResultsDict(search('The Fault in Our Stars'))
 #print getResultsDict(search('We Were Liars'))
 #print search('The Fault in Our Stars')
-advancedSearch('The Fault in Our Stars','John Green')
+#advancedSearch('The Fault in Our Stars','John Green')
 #print advancedSearch('American Pastoral', 'Philip Roth')
 #print advancedSearch('we were liars','e lockhart')
 print getReview(11870085)
