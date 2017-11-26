@@ -38,6 +38,7 @@ def getResultsDict(info):
         d['reviewLink'] = entry['link']['url']
         d['reviewTitle'] = entry['headline']
         d['reviewAuthor'] = entry['byline']
+        d['reviewSummary'] = entry['summary_short']
         d['rating'] = entry['mpaa_rating']
         #sometimes release date is None
         d['released'] = entry['opening_date']
