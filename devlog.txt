@@ -29,12 +29,33 @@ LESSONS LEARNED
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
 ==============================================================
 
-2017-11-17
---------------------------------------------------------------
-All members :: 
-GL :: 
-SP :: 
-MT :: 1:50PM  -- Started flask app
-AZ ::
-==============================================================
+manahalT -- 2017-11-17 13:50:42
+started the flask app
 
+gordonL -- 2017-11-21 13:51:53
+pushed templates + static folder
+
+manahalT -- 2017-11-21 20:09:14
+worked on book.py
+
+gordonL -- 2017-11-21 21:21:57
+edited base.html
+
+manahalT -- 2017-11-24 21:42:40
+
+worked on creating a dictionary of book search results
+
+manahalT -- 2017-11-25 00:46:40
+finished advanced search book method
+
+parabS -- 2017-11-25 14:42:56
+worked on movie.py
+
+manahalT -- 2017-11-25 15:01:35
+finished getReview method for books
+
+manahalT -- 2017-11-25 15:46:20
+added comments to book.py
+
+parabS -- 2017-11-25 18:49:15
+finished movie.py and commented
