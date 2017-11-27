@@ -59,3 +59,6 @@ added comments to book.py
 
 parabS -- 2017-11-25 18:49:15
 finished movie.py and commented
+gordonL -- 2017-11-26 22:38:32
+update templates + update static files
+
