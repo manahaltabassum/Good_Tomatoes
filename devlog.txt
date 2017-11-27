@@ -62,3 +62,6 @@ finished movie.py and commented
 
 gordonL -- 2017-11-26 22:38:32
 update templates + update static files
+
+angelicaZ -- 2017-11-27 04:25:46
+created new search templates/added search bars/working on app.py
