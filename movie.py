@@ -36,22 +36,24 @@ def getResultsDict(info):
     for entry in info['results']:
         #making the entries keys strings to
         # avoid key errors when accessing by the title
-        t = str(entry['display_title'])
-        title = t
+        title = unicode(entry['display_title']).encode('utf-8')
         d = {}
-        d['reviewLink'] = str(entry['link']['url'])
-        d['reviewTitle'] = str(entry['headline'])
-        d['reviewAuthor'] = str(entry['byline'])
-        d['summary'] = str(entry['summary_short'])
+        d['reviewLink'] = unicode(entry['link']['url']).encode('utf-8')
+        d['reviewTitle'] = unicode(entry['headline']).encode('utf-8')
+        d['reviewAuthor'] = unicode(entry['byline']).encode('utf-8')
+        d['summary'] = unicode(entry['summary_short']).encode('utf-8')
         #sometimes image is None
         if entry['multimedia'] == None:
             d['image_url'] = entry['multimedia']
         else:
-            d['image_url'] = str(entry['multimedia']['src'])
-        d['rating'] = str(entry['mpaa_rating'])
+            d['image_url'] = unicode(entry['multimedia']['src']).encode('utf-8')
+        d['rating'] = unicode(entry['mpaa_rating']).encode('utf-8')
         #sometimes release date is None
-        d['released'] = entry['opening_date']
-        ans[entry['display_title']] = d
+        if entry['opening_date'] == None:
+            d['released'] = entry['opening_date']
+        else:
+            d['released'] = unicode(entry['opening_date']).encode('utf-8')
+        ans[title] = d
     return ans
 
 
