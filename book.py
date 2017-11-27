@@ -1,4 +1,4 @@
-import xmltodict, urllib2, json, requests
+import xmltodict, json, requests
 import key
 
 app_key = key.goodreads_key
@@ -108,7 +108,7 @@ def getReview(bookID):
 #TEST CASES
 
 #print search('The+Fault+in+Our+Stars')
-#print search('The Fault in Our Stars')
+print search('The Fault in Our Stars')
 #print advancedSearch('The Fault in Our Stars', 'John Green')
 #print getResultsDict(search('The Fault in Our Stars'))
 #print getResultsDict(search('We Were Liars'))

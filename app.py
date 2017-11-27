@@ -20,8 +20,8 @@ def bookpage():
 def searchedbook():
     bookname = request.form['q']
     search_dict = book.search(bookname)
-    results_dict = book.getResultsDict(search_dict)
-    print results_dict
+    #results_dict = book.getResultsDict(search_dict)
+    print search_dict
     #print "AAAAHHHHHHHHHHHHH    " + bookname
     return render_template("bookreviews.html", search=bookname)
 
