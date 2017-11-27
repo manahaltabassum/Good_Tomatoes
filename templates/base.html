@@ -10,7 +10,7 @@
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-            
+
             <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/goodTomatoesCSS.css') }}">
             <script>
             jQuery(document).ready(function(){
@@ -31,10 +31,10 @@
                                             <a class = "nav-link active " href = "{{ url_for('root') }}"> Home </a>
                                         </li>
                                         <li class = "nav-item">
-                                            <a class = "nav-link " href = "{{ url_for('movie') }}"> Movie Review </a> 
+                                            <a class = "nav-link " href = "{{ url_for('movie') }}"> Movie Review </a>
                                         </li>
                                         <li class = "nav-item">
-                                            <a class = "nav-link" href = "{{ url_for('book') }}"> Book Review </a>    
+                                            <a class = "nav-link" href = "{{ url_for('book') }}"> Book Review </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -42,15 +42,8 @@
                     </div>
             {% set messages = get_flashed_messages() %}
             {% for message in messages %}
-<<<<<<< HEAD
-                <h3>{{message}}</h3>
-            {% endfor %}
-            {% endblock %}
-    </body>
-=======
                 <h3 class = "flash">{{message}}</h3>
-            {% endfor %}   
+            {% endfor %}
         </body>
         {% endblock %}
->>>>>>> 09f81e56f2b4387ded73480ba106a4f7c20a4688
 </html>

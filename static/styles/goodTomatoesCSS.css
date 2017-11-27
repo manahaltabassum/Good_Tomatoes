@@ -1,4 +1,4 @@
-/* General CSS */ 
+/* General CSS */
 .textField{
     padding: 10px;
     border: none;
@@ -16,6 +16,16 @@
 
 
 /* Pages CSS */
+
+.searchbar input[type=text]{
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+}
+
 #welcomeToUs{
     background-color: red;
 }
@@ -87,7 +97,7 @@ form{
     border-bottom: 2px solid green;
 }
 
-/* Flash messages */ 
+/* Flash messages */
 .flash{
     font-weight:bold;
     text-align:center;
@@ -109,7 +119,7 @@ form{
 }
 
 .welcomeTitle:hover{
-    border: 5px solid grey; 
+    border: 5px solid grey;
 }
 
 .accountBox{
@@ -155,7 +165,7 @@ form{
     width:30%;
     flex-direction:row;
     box-shadow: 1px 1px 0 green;
-    transition: 1s ease; 
+    transition: 1s ease;
 }
 .optionBox{
     background-color: white;
@@ -166,7 +176,7 @@ form{
     font-family: OpenSans-Light;
     border:5px solid orange;
     transition:1s ease;
-    
+
     overflow:hidden;
 }
 
@@ -174,7 +184,7 @@ form{
     border-color: red;
 }
 
-/* Create new Story */ 
+/* Create new Story */
 
 .enterTitle:hover{
     display:flex;
@@ -188,8 +198,8 @@ form{
         8px 8px 0 green,
         10px 10px 0 green,
         12px 12px 0 green,
-        14px 14px 0 green, 
-        16px 16px 0 green, 
+        14px 14px 0 green,
+        16px 16px 0 green,
         18px 18px 0 green,
         20px 20px 0 green;
 }
@@ -214,7 +224,7 @@ form{
     border: none;
 }
 
-/* Login Animations + Buttons */ 
+/* Login Animations + Buttons */
 .accountField{
     padding: 10px;
     border: none;
@@ -240,15 +250,15 @@ form{
     color: #333;
 }
 
-/* Buttons */ 
+/* Buttons */
 .login{
     display: block;
-    transition: 1s ease; 
+    transition: 1s ease;
     -webkit-transition: 1s ease;
 }
 
 .login:hover, .login:focus{
-    box-shadow: inset 8em 0 0 0 lightgreen, 
+    box-shadow: inset 8em 0 0 0 lightgreen,
         inset -8em 0 0 0 lightgreen;
         color: #333;
 }

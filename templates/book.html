@@ -11,18 +11,26 @@
                                     <a class = "nav-link" href = "{{ url_for('root') }}"> Home </a>
                                 </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link " href = "{{ url_for('movie') }}"> Movie Review </a> 
+                                    <a class = "nav-link " href = "{{ url_for('movie') }}"> Movie Review </a>
                                 </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link active" href = "{{ url_for('book') }}"> Book Review </a>    
+                                    <a class = "nav-link active" href = "{{ url_for('book') }}"> Book Review </a>
                                 </li>
                             </ul>
                         </div>
                 </nav>
             </div>
+
+        <div class="searchbar">
+          <form action="/searchedbook" name="search">
+            <input type="text" placeholder="Search For a Book!">
+            <input type="submit" name="q" value="Search!">
+          </form> 
+        </div>
+
     {% set messages = get_flashed_messages() %}
     {% for message in messages %}
         <h3 class = "flash">{{message}}</h3>
-    {% endfor %}   
+    {% endfor %}
 </body>
 {% endblock %}

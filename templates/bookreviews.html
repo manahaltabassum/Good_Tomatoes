@@ -29,14 +29,7 @@
     </div>
 </div>
 
-<div class="searchbar">
-  <form action="/searched" name="search">
-    <input type="text" placeholder="Search For a Book and/or a Movie!">
-    <input type="submit" name="q" value="Search!">
-  </form>
-</div>
-
-
+These are the book reviews for {{search}}!
 
 {% set messages = get_flashed_messages() %}
 {% for message in messages %}
