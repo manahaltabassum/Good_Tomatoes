@@ -1,4 +1,4 @@
-import xmltodict, urllib2, json, requests
+import xmltodict, json, requests
 import key
 
 app_key = key.goodreads_key
@@ -17,7 +17,7 @@ def search(query):
     q = query
     info_d = {'key': app_key, 'q': q}
     r = requests.get(url, params=info_d)
-    #print r.url
+    print r.url
     #return r
     info = r.text
     d = xmltodict.parse(info)
@@ -55,30 +55,32 @@ def advancedSearch(title, author):
 '''Builds the dictionary of results which is cleaner than that
 returned by the goodreads API. Check above for the structure.'''
 def getResultsDict(info):
-    #return info['GoodreadsResponse']['search']['results']['work'][0]['id']['@type']
     num_results = int(info['GoodreadsResponse']['search']['results-end'])
-    #print ('num results = ' + num_results)
+    print ('num results = ' + str(num_results))
     counter = 0
     results = {}
-    #return json.dumps(info['GoodreadsResponse']['search']['results']['work'][0], indent=2)
-    #return info['GoodreadsResponse']['search']['results']['work'][0]['best_book']['title']
-    if (num_results > 10):
-        num_results = 10
     while (counter < num_results):
-        key = str(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['title'])
-        val = []
-        author = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['author']['name']
-        val.append(str(author))
+        key = unicode(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['title']).encode('utf-8')
+        #val = []
+        val = {}
+        author = unicode(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['author']['name']).encode('utf-8')
+        val['author'] = author
+        #val.append(unicode(author).encode('utf-8'))
         rating = info['GoodreadsResponse']['search']['results']['work'][counter]['average_rating']
-        val.append(str(rating))
+        val['rating'] = str(rating)
+        #val.append(str(rating))
         num_ratings = info['GoodreadsResponse']['search']['results']['work'][counter]['ratings_count']['#text']
-        val.append(str(num_ratings))
+        val['num_ratings'] = str(num_ratings)
+        #val.append(str(num_ratings))
         num_reviews = info['GoodreadsResponse']['search']['results']['work'][counter]['text_reviews_count']['#text']
-        val.append(str(num_reviews))
+        val['num_reviews'] = str(num_reviews)
+        #val.append(str(num_reviews))
         image_url = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['image_url']
-        val.append(str(image_url))
+        val['image_url'] = str(image_url)
+        #val.append(str(image_url))
         book_id = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['id']['#text']
-        val.append(str(book_id))
+        val['book_id'] = str(book_id)
+        #val.append(str(book_id))
         results[key] = val
         #print key
         #print val
@@ -87,7 +89,6 @@ def getResultsDict(info):
     #for key, val in results.items():
         #print key, '=>', val
     return results
-
 
 '''Uses the bookID in order to search up the reviews. Need to access bookID
 from the resultsDict from before in order to use this method. It will return
@@ -116,4 +117,5 @@ def getReview(bookID):
 #advancedSearch('The Fault in Our Stars','John Green')
 #print advancedSearch('American Pastoral', 'Philip Roth')
 #print advancedSearch('we were liars','e lockhart')
-#print getReview(11870085)
+print getReview(11870085)
+print search('love')
