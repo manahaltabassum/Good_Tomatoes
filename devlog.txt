@@ -68,3 +68,6 @@ created new search templates/added search bars/working on app.py
 
 angelicaZ -- 2017-11-27 06:07:12
 continuing to work on app.py/getting "UnicodeEncodeError: 'ascii' codec can't encode character u'\xa0' in position 20: ordinal not in range(128)" when trying to print results_dict from book.py
+manahalT -- 2017-11-27 13:49:40
+fixed ascii error in book.py
+

@@ -57,18 +57,19 @@ returned by the goodreads API. Check above for the structure.'''
 def getResultsDict(info):
     #return info['GoodreadsResponse']['search']['results']['work'][0]['id']['@type']
     num_results = int(info['GoodreadsResponse']['search']['results-end'])
-    #print ('num results = ' + num_results)
+    print ('num results = ' + str(num_results))
     counter = 0
     results = {}
     #return json.dumps(info['GoodreadsResponse']['search']['results']['work'][0], indent=2)
     #return info['GoodreadsResponse']['search']['results']['work'][0]['best_book']['title']
+    '''
     if (num_results > 10):
-        num_results = 10
+        num_results = 10'''
     while (counter < num_results):
-        key = str(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['title'])
+        key = unicode(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['title']).encode('utf-8')
         val = []
         author = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['author']['name']
-        val.append(str(author))
+        val.append(unicode(author).encode('utf-8'))
         rating = info['GoodreadsResponse']['search']['results']['work'][counter]['average_rating']
         val.append(str(rating))
         num_ratings = info['GoodreadsResponse']['search']['results']['work'][counter]['ratings_count']['#text']
@@ -108,7 +109,7 @@ def getReview(bookID):
 #TEST CASES
 
 #print search('The+Fault+in+Our+Stars')
-print search('The Fault in Our Stars')
+#print search('The Fault in Our Stars')
 #print advancedSearch('The Fault in Our Stars', 'John Green')
 #print getResultsDict(search('The Fault in Our Stars'))
 #print getResultsDict(search('We Were Liars'))
@@ -117,3 +118,4 @@ print search('The Fault in Our Stars')
 #print advancedSearch('American Pastoral', 'Philip Roth')
 #print advancedSearch('we were liars','e lockhart')
 #print getReview(11870085)
+#print search('love')
