@@ -11,10 +11,10 @@
                                     <a class = "nav-link" href = "{{ url_for('root') }}"> Home </a>
                                 </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link active" href = "{{ url_for('movie') }}"> Movie Review </a>
+                                    <a class = "nav-link active" href = "{{ url_for('moviepage') }}"> Movie Review </a>
                                 </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link" href = "{{ url_for('book') }}"> Book Review </a>
+                                    <a class = "nav-link" href = "{{ url_for('bookpage') }}"> Book Review </a>
                                 </li>
                             </ul>
                         </div>
@@ -22,9 +22,9 @@
             </div>
 
             <div class="searchbar">
-              <form action="/searchedbook" name="search">
-                <input type="text" placeholder="Search For a Movie!">
-                <input type="submit" name="q" value="Search!">
+              <form action="/searchedbook" method = "post">
+                <input type="text" name = "q" placeholder="Search For a Movie!" required>
+                <input type="submit"value="Search!">
               </form>
             </div>
 

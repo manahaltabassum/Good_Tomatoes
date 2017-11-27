@@ -10,7 +10,7 @@ app_key = key.goodreads_key
  ...}
 '''
 
-'''Takes in the title of the book and returns the entire 
+'''Takes in the title of the book and returns the entire
 dict of results which has not been filtered through'''
 def search(query):
     url = 'https://www.goodreads.com/search/index.xml'
@@ -35,8 +35,8 @@ def advancedSearch(title, author):
     results = search(title)
     auth = author.lower()
     auth.replace(' ','')
-    print auth
-    print isinstance(results, dict)
+    #print auth
+    #print isinstance(results, dict)
     new_dict = {}
     for key in results:
         #print results[key][0].lower()
@@ -51,7 +51,7 @@ def advancedSearch(title, author):
     return new_dict
 
 
-    
+
 '''Builds the dictionary of results which is cleaner than that
 returned by the goodreads API. Check above for the structure.'''
 def getResultsDict(info):
@@ -84,8 +84,8 @@ def getResultsDict(info):
         #print val
         counter += 1
     #print len(results)
-    for key, val in results.items():
-        print key, '=>', val
+    #for key, val in results.items():
+        #print key, '=>', val
     return results
 
 
@@ -96,7 +96,7 @@ def getReview(bookID):
     url = 'https://www.goodreads.com/book/show.xml'
     p = {'id': bookID, 'key': app_key}
     r = requests.get(url, params=p)
-    print r.url
+    #print r.url
     info = r.text
     #print info
     d = xmltodict.parse(info)
@@ -108,8 +108,8 @@ def getReview(bookID):
 #TEST CASES
 
 #print search('The+Fault+in+Our+Stars')
-print search('The Fault in Our Stars')
-print advancedSearch('The Fault in Our Stars', 'John Green')
+#print search('The Fault in Our Stars')
+#print advancedSearch('The Fault in Our Stars', 'John Green')
 #print getResultsDict(search('The Fault in Our Stars'))
 #print getResultsDict(search('We Were Liars'))
 #print search('The Fault in Our Stars')

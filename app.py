@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, request, session, redirect, url_for, flash
 import book, movie
 
 app = Flask(__name__)
@@ -7,19 +7,23 @@ app = Flask(__name__)
 def root ():
     return render_template ('welcome.html')
 
-@app.route('/movie')
-def movie():
+@app.route('/movie', methods = ['post','get'])
+def moviepage():
     return render_template('movie.html');
 
-@app.route('/book')
-def book():
+@app.route('/book', methods = ['post','get'])
+def bookpage():
     return render_template('book.html');
 
 
-@app.route('/searchedbook')
+@app.route('/searchedbook', methods = ['post','get'])
 def searchedbook():
-    search = request.form['']
-    return render_template("bookreviews.html", search = search)
+    bookname = request.form['q']
+    search_dict = book.search(bookname)
+    results_dict = book.getResultsDict(search_dict)
+    print results_dict
+    #print "AAAAHHHHHHHHHHHHH    " + bookname
+    return render_template("bookreviews.html", search=bookname)
 
 
 

@@ -65,3 +65,6 @@ update templates + update static files
 
 angelicaZ -- 2017-11-27 04:25:46
 created new search templates/added search bars/working on app.py
+
+angelicaZ -- 2017-11-27 06:07:12
+continuing to work on app.py/getting "UnicodeEncodeError: 'ascii' codec can't encode character u'\xa0' in position 20: ordinal not in range(128)" when trying to print results_dict from book.py
