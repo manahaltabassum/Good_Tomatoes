@@ -36,14 +36,19 @@ def getResultsDict(info):
     for entry in info['results']:
         #making the entries keys strings to
         # avoid key errors when accessing by the title
-        t = "" + entry['display_title']
+        t = str(entry['display_title'])
         title = t
         d = {}
-        d['reviewLink'] = entry['link']['url']
-        d['reviewTitle'] = entry['headline']
-        d['reviewAuthor'] = entry['byline']
-        d['summary'] = entry['summary_short']
-        d['rating'] = entry['mpaa_rating']
+        d['reviewLink'] = str(entry['link']['url'])
+        d['reviewTitle'] = str(entry['headline'])
+        d['reviewAuthor'] = str(entry['byline'])
+        d['summary'] = str(entry['summary_short'])
+        #sometimes image is None
+        if entry['multimedia'] == None:
+            d['image_url'] = entry['multimedia']
+        else:
+            d['image_url'] = str(entry['multimedia']['src'])
+        d['rating'] = str(entry['mpaa_rating'])
         #sometimes release date is None
         d['released'] = entry['opening_date']
         ans[entry['display_title']] = d
@@ -51,7 +56,7 @@ def getResultsDict(info):
 
 
 #example test cases
-'''
+
 dict = search('wonder')
 dict2 = advancedSearch('wonder')
 for entry in dict:
@@ -59,4 +64,4 @@ for entry in dict:
     print dict[entry]
 print
 print dict2
-'''
+
