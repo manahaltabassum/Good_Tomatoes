@@ -17,7 +17,7 @@ def search(query):
     q = query
     info_d = {'key': app_key, 'q': q}
     r = requests.get(url, params=info_d)
-    print r.url
+    #print r.url
     #return r
     info = r.text
     d = xmltodict.parse(info)
@@ -117,5 +117,5 @@ def getReview(bookID):
 #advancedSearch('The Fault in Our Stars','John Green')
 #print advancedSearch('American Pastoral', 'Philip Roth')
 #print advancedSearch('we were liars','e lockhart')
-print getReview(11870085)
-print search('love')
+#print getReview(11870085)
+#print search('love')

@@ -22,11 +22,11 @@ def searchedbook():
     #print "AAAAHHHHHHHHHHHHH    " + bookname
     return render_template("reviews.html", type="book", search=bookname, dict = search_dict)
 
-def searchedbook():
-    moviename = request.form['q']
-    search_dict = movie.search(moviename)
-
-    return render_template("reviews.html", type= "movie", search=moviename, dict= search_dict)
+#@app.route('/searchedmovie', methods = ['post','get'])
+#def searchedmovie():
+    #moviename = request.form['q']
+    #search_dict = movie.search(moviename)
+    #return render_template("reviews.html", type= "movie", search=moviename, dict= search_dict)
 
 
 

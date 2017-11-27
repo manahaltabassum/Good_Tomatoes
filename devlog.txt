@@ -71,3 +71,6 @@ continuing to work on app.py/getting "UnicodeEncodeError: 'ascii' codec can't en
 
 manahalT -- 2017-11-27 13:49:40
 fixed ascii error in book.py
+
+angelicaZ -- 2017-11-27 18:22:34
+changed template layouts/continued to work on app.py

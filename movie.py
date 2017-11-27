@@ -59,9 +59,8 @@ def getResultsDict(info):
 
 dict = search('wonder')
 dict2 = advancedSearch('wonder')
-for entry in dict:
-    print entry
-    print dict[entry]
-print
-print dict2
-
+#for entry in dict:
+    #print entry
+    #print dict[entry]
+#print
+#print dict2
