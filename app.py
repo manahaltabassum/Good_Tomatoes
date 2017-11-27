@@ -7,24 +7,26 @@ app = Flask(__name__)
 def root ():
     return render_template ('welcome.html')
 
-@app.route('/movie', methods = ['post','get'])
-def moviepage():
-    return render_template('movie.html');
-
-@app.route('/book', methods = ['post','get'])
-def bookpage():
-    return render_template('book.html');
+@app.route('/searched', methods = ['post','get'])
+def searched():
+    title = request.form['q']
+    return render_template("searched.html", title=title)
 
 
 @app.route('/searchedbook', methods = ['post','get'])
 def searchedbook():
     bookname = request.form['q']
     search_dict = book.search(bookname)
-    results_dict = book.getResultsDict(search_dict)
-    print results_dict
+    #results_dict = book.getResultsDict(search_dict)
+    #print search_dict
     #print "AAAAHHHHHHHHHHHHH    " + bookname
-    return render_template("bookreviews.html", search=bookname)
+    return render_template("reviews.html", type="book", search=bookname, dict = search_dict)
 
+def searchedbook():
+    moviename = request.form['q']
+    search_dict = movie.search(moviename)
+
+    return render_template("reviews.html", type= "movie", search=moviename, dict= search_dict)
 
 
 
