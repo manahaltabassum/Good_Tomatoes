@@ -11,4 +11,4 @@ Our group used the Goodreads API and NYTimes Movie Reviews API to bring you this
 1. Activate your virtual environment.
 2. Ensure that flask, xmltodict, and requests have been installed into the virtual environment.
 3. Ensure that key.py is at the root directory.
-4. Type in '''python app.py''' in the terminal to run the site and enjoy!
+4. Type in ```python app.py``` in your terminal to get the website running and enjoy!
