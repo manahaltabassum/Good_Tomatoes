@@ -80,6 +80,7 @@
 
           <h3> Most Relevant Book Review Result: </h3>
 
+          {% if book != None %}
           <form action="/fullbook" method="post">
             <input type="hidden" value="{{book[1]['book_id']}}" name="bookID">
             <input type="submit" value="{{book[0]}}" name = "book">
@@ -89,8 +90,11 @@
           <b>Number of Ratings:</b> {{book[1]['num_ratings']}} <br>
           <b>Number of Reviews:</b> {{book[1]['num_reviews']}} <br>
           <img src="{{book[1]['image_url']}}" alt="Image Not Available"> <br><br><br>
+          {% else %}
+          <h2> There are no book results to display for "{{title}}"! </h2>
+          {% endif %}
 
-
+          {% if movie != None %}
           <h3> Most Relevant Movie Review Result: </h3>
           <form action="{{movie[1]['reviewLink']}}" method="post">
             <input type="hidden" value="{{movie[1]['reviewLink']}}" name="reviewLink">
@@ -100,6 +104,9 @@
           <b>Author:</b> {{movie[1]['reviewAuthor']}} <br>
           <b>Summary:</b> {{movie[1]['summary']}} <br>
           <img src="{{movie[1]['image_url']}}" alt="Image Not Available">
+          {% else %}
+          <h2> There are no movie results to display for "{{title}}"! </h2>
+          {% endif %}
 
 
 <!--

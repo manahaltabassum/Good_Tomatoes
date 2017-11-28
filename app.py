@@ -23,8 +23,14 @@ def searched():
     global title
     if 'q' in request.form:
         title = request.form['q']
-    best_book = book.search(title).items()[0]
-    best_movie = movie.search(title).items()[0]
+    if (book.search(title) != None):
+        best_book = book.search(title).items()[0]
+    else:
+        best_book = None;
+    if (movie.search(title) != None):
+        best_movie = movie.search(title).items()[0]
+    else:
+        best_movie = None;
     return render_template("searched.html", title=title, book = best_book, movie = best_movie)
 
 @app.route('/searchedbook', methods = ['post','get'])
