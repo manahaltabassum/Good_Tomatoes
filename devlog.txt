@@ -74,3 +74,6 @@ fixed ascii error in book.py
 
 angelicaZ -- 2017-11-27 18:22:34
 changed template layouts/continued to work on app.py
+manahalT -- 2017-11-27 19:11:11
+finished book.py advanced search
+
