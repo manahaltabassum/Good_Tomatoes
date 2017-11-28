@@ -38,7 +38,12 @@ def searchedbook():
     global title
     #bookname = request.form['q']
     search_dict = book.search(title)
-    return render_template("bookreviews.html", type="book", search=title, dict = search_dict)
+    author = None;
+    if ('author' in request.form):
+        author = request.form['author']
+        search_dict = book.advancedSearch(title, author)
+
+    return render_template("bookreviews.html", type="book", search=title, dict = search_dict, author = author)
 
 @app.route('/searchedmovie', methods = ['post','get'])
 def searchedmovie():

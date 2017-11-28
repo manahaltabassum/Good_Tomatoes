@@ -7,9 +7,12 @@
                     <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span> -->
                     <div id="navbarNav">
                             <ul class = "nav nav-pills nav-fill">
-                                <li class = "nav-item">
-                                    <a class = "nav-link" href = "{{ url_for('root') }}"> Home </a>
-                                </li>
+                              <li class = "nav-item">
+                                  <a class = "nav-link" href = "{{ url_for('root') }}"> Search Another Title </a>
+                              </li>
+                              <li class = "nav-item">
+                                  <a class = "nav-link active" href = "{{ url_for('searched') }}"> Home </a>
+                              </li>
                                 <li class = "nav-item">
                                     <a class = "nav-link " href = "{{ url_for('searchedmovie') }}"> All Movie Reviews </a>
                                 </li>
@@ -18,11 +21,24 @@
                                 </li>
                             </ul>
                         </div>
+
+                        <form action="/searchedbook" method="post" class = "form-inline right">
+                            <div class = "input-group">
+                            <span class = "input-group-addon" id = "basi-addon1">Advanced Search </span>
+                            <input type="text" name="author" class="form-control textField left" placeholder="Author's name" required >
+                            <input type="submit" value="Search!" formmethod="post" class="squashButton btn btn-secondary left">
+                        </div>
+                        </form>
                 </nav>
             </div>
 
     {% if dict != None %}
     <h2> These are the {{type}} results for "{{search}}"! Click any one of them to see full reviews! </h2> <br>
+
+    {% if author != None %}
+    <h3> Only displaying books by the author {{author}}! </h3>
+    {% endif %}
+
           {% for title in dict %}
 
           {% if dict[title]['num_ratings'] != "0" %}

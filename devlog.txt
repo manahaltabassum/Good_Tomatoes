@@ -88,4 +88,7 @@ angelicaZ -- 2017-11-27 04:05:23
 finally fixed encoding/decoding error!!
 
 angelicaZ -- 2017-11-27 05:48:50
-fully functioning now and displays reviews correctly but still needs to be styled 
+fully functioning now and displays reviews correctly but still needs to be styled
+
+angelicaZ -- 2017-11-27 12:32:18
+implemented advanced search for book reviews (might still be a bit buggy though)
