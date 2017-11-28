@@ -11,10 +11,10 @@
                                     <a class = "nav-link" href = "{{ url_for('root') }}"> Home </a>
                                 </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link " href = "{{ url_for('moviepage') }}"> Movie Review </a>
+                                    <a class = "nav-link " href = "{{ url_for('searchedmovie') }}"> Movie Review </a>
                                 </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link active" href = "{{ url_for('bookpage') }}"> Book Review </a>
+                                    <a class = "nav-link active" href = "{{ url_for('searchedbook') }}"> Book Review </a>
                                 </li>
                             </ul>
                         </div>
@@ -23,12 +23,12 @@
 
 <h2> These are the {{type}} reviews for {{search}}! </h2>
 
-    {% if {{dict}} != 'none' %}
-      {% for title in dict}
-          {{title}}
-      {% endfor %}
+    {% if dict != 'none' %}
+          {% for title in dict %}
+              {{title}}
+          {% endfor %}
     {% else %}
-        <h2> There are no {{type}} reviews to display for {{search}}! </h2>
+          <h2> There are no {{type}} reviews to display for {{search}}! </h2>
     {% endif %}
 
     {% set messages = get_flashed_messages() %}

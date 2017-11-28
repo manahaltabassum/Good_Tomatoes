@@ -16,17 +16,20 @@ def searched():
 @app.route('/searchedbook', methods = ['post','get'])
 def searchedbook():
     bookname = request.form['q']
+    if isinstance(bookname, str):
+        bookname = unicode(bookname, 'utf-8')
+    if isinstance(bookname, str):
+        bookname = bookname.decode('ascii', 'ignore').encode('ascii')
+    elif isinstance(bookname, unicode):
+        bookname = bookname.encode('ascii', 'ignore')
     search_dict = book.search(bookname)
-    #results_dict = book.getResultsDict(search_dict)
-    #print search_dict
-    #print "AAAAHHHHHHHHHHHHH    " + bookname
     return render_template("reviews.html", type="book", search=bookname, dict = search_dict)
 
-#@app.route('/searchedmovie', methods = ['post','get'])
-#def searchedmovie():
-    #moviename = request.form['q']
-    #search_dict = movie.search(moviename)
-    #return render_template("reviews.html", type= "movie", search=moviename, dict= search_dict)
+@app.route('/searchedmovie', methods = ['post','get'])
+def searchedmovie():
+    moviename = request.form['q']
+    search_dict = movie.search(moviename)
+    return render_template("reviews.html", type= "movie", search=moviename, dict= search_dict)
 
 
 
