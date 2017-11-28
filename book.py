@@ -149,6 +149,30 @@ def getBest(info):
     return result
 
 
+'''Takes in a dictionary and integer specifiying the number
+of results wanted and returns those number of results. If the num
+of results wanted is greater than the total possible results then
+display all results'''
+def numResults(num, info):
+    if ((len(info)) < num):
+        return info
+    if (num == 0):
+        return None
+    counter = 0
+    results = {}
+    keys = []
+    for key in info:
+        keys.append(key)
+    while (counter < num):
+        results[keys[counter]] = info[keys[counter]]
+        counter += 1
+    #print len(results)
+    return results
+
+        
+
+    
+
 #TEST CASES
 
 #print search('The+Fault+in+Our+Stars')
@@ -163,3 +187,4 @@ def getBest(info):
 #print getReview(11870085)
 #print search('love')
 #print getBest(search('The Fault in Our Stars'))
+print numResults(10, search('The Fault in Our Stars'))

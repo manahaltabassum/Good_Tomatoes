@@ -101,3 +101,6 @@ fixed search to get rid of 0 rating entries in books.py
 manahalT -- 2017-11-28 13:54:28
 updated search in book.py to include all search results
 
+manahalT -- 2017-11-28 14:50:53
+added numbooks method to book.py to give number of results specified
+
