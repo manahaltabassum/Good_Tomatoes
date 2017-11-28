@@ -77,3 +77,6 @@ changed template layouts/continued to work on app.py
 manahalT -- 2017-11-27 19:11:11
 finished book.py advanced search
 
+gordonL -- 2017-11-27 23:24:50
+bootstrap-ify files + css-fy. worked on app.py and templates a lot more
+
