@@ -3,15 +3,24 @@
 {% block body %}
 <body class = "withNav">
         <div class = "container">
-                <nav class="navbar navbar-expand-lg fixed-top justify-content-between" style="background-color:rgba(240, 248, 255,0.4)" >
+                <nav class="navbar navbar-toggleable-md navbar-expand-lg fixed-top justify-content-between" style="background-color:rgba(240, 248, 255,0.4)" >
                     <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span> -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color:green">TEMP BUTTON
-  </button>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class = "btn btn-outline-success">
+                            <img src = "static/images/tomatoButton.png" class="tomatoImage">
+                            Click here!
+                        </span>
+                    </button>
                     <div id="navbarNav" class = "collapse navbar-collapse">
-                            <ul class = "nav nav-pills nav-fill">
+                            <ul class = "nav navbar-nav nav-pills mr-auto nav-fill">
+                              <!--
                               <li class = "nav-item">
                                   <a class = "nav-link" href = "{{ url_for('root') }}"> Search Another Title </a>
                               </li>
+                            -->
+                            <li class = "nav-item">
+                                <a class = "nav-link" href = "{{ url_for('root') }}"> Root </a>
+                            </li>
                               <li class = "nav-item">
                                   <a class = "nav-link active" href = "{{ url_for('searched') }}"> Home </a>
                               </li>
@@ -22,14 +31,14 @@
                                     <a class = "nav-link" href = "{{ url_for('searchedbook') }}" name="booktitle" value = {{title}}> All Book Reviews </a>
                                 </li>
                             </ul>
-                        </div>
                                 <form action="/searched" method="post" class = "form-inline right">
                                     <div class = "input-group">
-                                    <span class = "input-group-addon" id = "basi-addon1">temp</span>
+                                    <span class = "input-group-addon" id = "basi-addon1">Search</span>
                                     <input type="text" name="q" class="form-control textField left" placeholder="Type a title!" required >
-                                    <input type="submit" value="Search!" formmethod="post" class="squashButton btn btn-secondary left">
+                                    <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left">
                                 </div>
                                 </form>
+                        </div>
                 </nav>
             </div>
 
