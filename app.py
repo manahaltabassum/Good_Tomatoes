@@ -10,11 +10,15 @@ def root ():
 @app.route('/searched', methods = ['post','get'])
 def searched():
     title = request.form['q']
-    return render_template("searched.html", title=title)
 
+    bookDict = book.search(title)
+    bookTitle = bookDict.keys()[0]
+    bookID = bookDict[bookTitle]["book_id"]
+
+    return render_template("searched.html", title=title, bookSearch = bookDict, bkTitle = bookTitle, bkID = bookID)
 
 @app.route('/searchedbook', methods = ['post','get'])
-def searchedbook():
+def bookpage():
     bookname = request.form['q']
     if isinstance(bookname, str):
         bookname = unicode(bookname, 'utf-8')

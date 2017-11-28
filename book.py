@@ -31,24 +31,46 @@ def search(query):
 '''Takes in the title and author of the book and returns a dict
 of search results that is more specific than the regular search'''
 def advancedSearch(title, author):
+    '''
     #results = getResultsDict(search(title))
     results = search(title)
     auth = author.lower()
     auth.replace(' ','')
     #print auth
     #print isinstance(results, dict)
+    #print json.dumps(results, indent=2)
     new_dict = {}
     for key in results:
-        #print results[key][0].lower()
-        if ((results[key][0].lower()) == auth):
+        #print results[key]['author'].lower()
+        if ((results[key]['author'].lower()) == auth):
             #print True
             val = results[key]
             new_dict[key] = val
+'''
     '''
     for key, val in new_dict.items():
         print key, '=>', val
     '''
-    return new_dict
+    auth = author.split()
+    #print auth
+    for x in range(len(auth)):
+        auth[x] = auth[x].lower()
+    #print auth
+    results = search(title)
+    new_dict = {}
+    for key in results:
+        found = False
+        for x in range(len(auth)):
+            if (auth[x] in (results[key]['author'].lower())):
+                found = True
+            else:
+                found = False
+        if (found == True):
+            new_dict[key] = results[key]
+    if (len(new_dict) == 0):
+        return None
+    else:
+        return new_dict
 
 
 
@@ -57,6 +79,8 @@ returned by the goodreads API. Check above for the structure.'''
 def getResultsDict(info):
     num_results = int(info['GoodreadsResponse']['search']['results-end'])
     print ('num results = ' + str(num_results))
+    if (num_results == 0):
+        return None
     counter = 0
     results = {}
     while (counter < num_results):

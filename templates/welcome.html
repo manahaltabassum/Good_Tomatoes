@@ -6,18 +6,25 @@
     yes
 </div>
 
-<div class = "container-fluid centerBox">
-    <div class = "containter-fluid teamName">
-        Good Tomatoes
+<div class = "container jumbotron jumbletron-fluid titleTron">
+    <div class="page-header teamName">
+        <h1>Good Tomatoes</h1>
+    </div>
+</div>
+<div class = "container-fluid jumbotron  jumbotron-fluid titleTron">
+
+<div class="col-lg-6">
+        <form action="/searched" method="post" class = "form-inline">
+            <input type="text" name="q" class="form-control textField left" placeholder="Type a title!" required >
+            <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left">
+        </form>
+    </div>
+    <div class = "container">
+        <h1 class = "display-3"> Welcome! </h1>
+        <p class = "lead" style = "text-align: left"> Description on how to use here </p>
     </div>
 </div>
 
-<div class="searchbar">
-  <form action="/searched" method="post">
-    <input type="text" name="q" placeholder="Search For a Book and/or a Movie!">
-    <input type="submit" value="Search!">
-  </form>
-</div>
 
 
 
