@@ -95,3 +95,6 @@ implemented advanced search for book reviews (might still be a bit buggy though)
 manahalT -- 2017-11-28 13:03:41
 added getBest method to book.py
 
+manahalT -- 2017-11-28 13:11:46
+fixed search to get rid of 0 rating entries in books.py
+

@@ -69,22 +69,25 @@ def getResultsDict(info):
     counter = 0
     results = {}
     while (counter < num_results):
-        key = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['title']
-        val = {}
-        author = str(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['author']['name'])
-        val['author'] = author
-        rating = info['GoodreadsResponse']['search']['results']['work'][counter]['average_rating']
-        val['rating'] = str(rating)
-        num_ratings = info['GoodreadsResponse']['search']['results']['work'][counter]['ratings_count']['#text']
-        val['num_ratings'] = str(num_ratings)
-        num_reviews = info['GoodreadsResponse']['search']['results']['work'][counter]['text_reviews_count']['#text']
-        val['num_reviews'] = str(num_reviews)
-        image_url = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['image_url']
-        val['image_url'] = str(image_url)
-        book_id = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['id']['#text']
-        val['book_id'] = str(book_id)
-        results[key] = val
-        counter += 1
+        if (int(info['GoodreadsResponse']['search']['results']['work'][counter]['ratings_count']['#text']) == 0):
+            counter +=1
+        else:
+            key = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['title']
+            val = {}
+            author = str(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['author']['name'])
+            val['author'] = author
+            rating = info['GoodreadsResponse']['search']['results']['work'][counter]['average_rating']
+            val['rating'] = str(rating)
+            num_ratings = info['GoodreadsResponse']['search']['results']['work'][counter]['ratings_count']['#text']
+            val['num_ratings'] = str(num_ratings)
+            num_reviews = info['GoodreadsResponse']['search']['results']['work'][counter]['text_reviews_count']['#text']
+            val['num_reviews'] = str(num_reviews)
+            image_url = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['image_url']
+            val['image_url'] = str(image_url)
+            book_id = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['id']['#text']
+            val['book_id'] = str(book_id)
+            results[key] = val
+            counter += 1
     #print len(results)
     #for key, val in results.items():
         #print key, '=>', val
