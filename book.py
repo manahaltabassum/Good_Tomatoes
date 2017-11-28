@@ -1,6 +1,11 @@
 import xmltodict, json, requests
 import key
 
+#THIS FIXES ENCODE ERROR 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 app_key = key.goodreads_key
 
 
@@ -84,10 +89,10 @@ def getResultsDict(info):
     counter = 0
     results = {}
     while (counter < num_results):
-        key = unicode(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['title']).encode('utf-8')
+        key = str(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['title'])
         #val = []
         val = {}
-        author = unicode(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['author']['name']).encode('utf-8')
+        author = str(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['author']['name'])
         val['author'] = author
         #val.append(unicode(author).encode('utf-8'))
         rating = info['GoodreadsResponse']['search']['results']['work'][counter]['average_rating']

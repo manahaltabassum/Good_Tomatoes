@@ -1,6 +1,11 @@
 import json, requests
 import key
 
+#THIS FIXES ENCODE ERROR 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 app_key = key.nytimes_key
 
 '''Takes in the name of the movie and returns the entire

@@ -21,11 +21,10 @@
                 </nav>
             </div>
 
-<h2> These are the {{type}} results for {{search}}! Click any one of them to see full reviews! </h2>
-
-    {% if dict != 'none' %}
+    {% if dict != None %}
+    <h2> These are the {{type}} results for {{search}}! Click any one of them to see full reviews! </h2>
           {% for title in dict %}
-              <input type="submit" value={{dict['title']['bookid']}} name = "bookID">
+              <input type="submit" value={{dict[title]['bookid']}} name = "bookID">
               {{title}}
               <br><br><br>
           {% endfor %}
