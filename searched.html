@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block body %}
+<body class = "withNav">
+        <div class = "container">
+                <nav class="navbar navbar-toggleable-md navbar-expand-lg fixed-top justify-content-between" style="background-color:rgba(240, 248, 255,0.4)" >
+                    <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span> -->
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class = "btn btn-outline-success">
+                            <img src = "static/images/tomatoButton.png" class="tomatoImage">
+                            Click here!
+                        </span>
+                    </button>
+                    <div id="navbarNav" class = "collapse navbar-collapse">
+                            <ul class = "nav navbar-nav nav-pills mr-auto nav-fill">
+                              <!--
+                              <li class = "nav-item">
+                                  <a class = "nav-link" href = "{{ url_for('root') }}"> Search Another Title </a>
+                              </li>
+                            -->
+                            <li class = "nav-item">
+                                <a class = "nav-link" href = "{{ url_for('root') }}"> Root </a>
+                            </li>
+                              <li class = "nav-item">
+                                  <a class = "nav-link active" href = "{{ url_for('searched') }}"> Home </a>
+                              </li>
+                                <li class = "nav-item">
+                                    <a class = "nav-link " href = "{{ url_for('searchedmovie') }}" name="movietitle" value = {{title}}> All Movie Reviews </a>
+                                </li>
+                                <li class = "nav-item">
+                                    <a class = "nav-link" href = "{{ url_for('searchedbook') }}" name="booktitle" value = {{title}}> All Book Reviews </a>
+                                </li>
+                            </ul>
+                                <form action="/searched" method="post" class = "form-inline right">
+                                    <div class = "input-group">
+                                    <span class = "input-group-addon" id = "basi-addon1">Search</span>
+                                    <input type="text" name="q" class="form-control textField left" placeholder="Type a title!" required >
+                                    <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left">
+                                </div>
+                                </form>
+                        </div>
+                </nav>
+            </div>
+
+<h2> You have searched for "{{title}}"! </h2> <br> <br>
+
+<!--
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#firstMovie">
+        Movie Review
+      </button>
+      <div class="modal fade" id="firstMovie" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="firstMovieTitle">Insert Movie Title</h4>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            <div class="modal-body">
+              Movie stuff
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#firstBook">
+            Book Review
+          </button>
+
+          <div class="modal fade" id="firstBook" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="firstBookTitle">Searched Movie: {{title}}</h4>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-body">
+                  Book stuff
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+-->
+
+          <h3> Most Relevant Book Review Result: </h3>
+
+          {% if book != None %}
+          <form action="/fullbook" method="post">
+            <input type="hidden" value="{{book[1]['book_id']}}" name="bookID">
+            <input type="submit" value="{{book[0]}}" name = "book">
+          </form> <br>
+          <b>Author:</b> {{book[1]['author']}} <br>
+          <b>Avergage Rating:</b> {{book[1]['rating']}} <br>
+          <b>Number of Ratings:</b> {{book[1]['num_ratings']}} <br>
+          <b>Number of Reviews:</b> {{book[1]['num_reviews']}} <br>
+          <img src="{{book[1]['image_url']}}" alt="Image Not Available"> <br><br><br>
+          {% else %}
+          <h2> There are no book results to display for "{{title}}"! </h2>
+          {% endif %}
+
+          {% if movie != None %}
+          <h3> Most Relevant Movie Review Result: </h3>
+          <form action="{{movie[1]['reviewLink']}}" method="post">
+            <input type="hidden" value="{{movie[1]['reviewLink']}}" name="reviewLink">
+            <input type="submit" value="{{movie[0]}}" name = "movie">
+          </form> <br>
+          <b>Review Title: </b> {{movie[1]['reviewTitle']}} <br>
+          <b>Author:</b> {{movie[1]['reviewAuthor']}} <br>
+          <b>Summary:</b> {{movie[1]['summary']}} <br>
+          <img src="{{movie[1]['image_url']}}" alt="Image Not Available">
+          {% else %}
+          <h2> There are no movie results to display for "{{title}}"! </h2>
+          {% endif %}
+
+
+<!--
+<br> <br> <br>
+    <form action="/searchedbook" method = "post">
+          <input type="hidden" name="q" value = "{{title}}">
+          <input type="submit" value="See Book Reviews!">
+    </form>
+
+    <form action="/searchedmovie" method = "post">
+          <input type="hidden" name="q" value = "{{title}}">
+          <input type="submit" value="See Movie Reviews!">
+    </form>  -->
+
+</body>
+{% endblock %}
