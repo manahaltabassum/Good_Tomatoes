@@ -84,5 +84,8 @@ trying to fix ascii error again
 gordonL -- 2017-11-27 23:24:50
 bootstrap-ify files + css-fy. worked on app.py and templates a lot more
 
-angelicaz -- 2017-11-27 04:05:23
-finally fixed encoding/decoding error!! 
+angelicaZ -- 2017-11-27 04:05:23
+finally fixed encoding/decoding error!!
+
+angelicaZ -- 2017-11-27 05:48:50
+fully functioning now and displays reviews correctly but still needs to be styled 

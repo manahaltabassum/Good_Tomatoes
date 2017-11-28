@@ -1,7 +1,7 @@
 import json, requests
 import key
 
-#THIS FIXES ENCODE ERROR 
+#THIS FIXES ENCODE ERROR
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')

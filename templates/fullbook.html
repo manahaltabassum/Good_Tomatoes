@@ -7,30 +7,24 @@
                     <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span> -->
                     <div id="navbarNav">
                             <ul class = "nav nav-pills nav-fill">
+                              <li class = "nav-item">
+                                  <a class = "nav-link" href = "{{ url_for('root') }}"> Search Another Title </a>
+                              </li>
+                              <li class = "nav-item">
+                                  <a class = "nav-link" href = "{{ url_for('searched') }}"> Home </a>
+                              </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link" href = "{{ url_for('root') }}"> Home </a>
+                                    <a class = "nav-link" href = "{{ url_for('searchedmovie') }}"> All Movie Reviews </a>
                                 </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link " href = "{{ url_for('searchedmovie') }}"> Movie Review </a>
-                                </li>
-                                <li class = "nav-item">
-                                    <a class = "nav-link active" href = "{{ url_for('searchedbook') }}"> Book Review </a>
+                                    <a class = "nav-link" href = "{{ url_for('searchedbook') }}"> All Book Reviews </a>
                                 </li>
                             </ul>
                         </div>
                 </nav>
             </div>
 
-    {% if dict != None %}
-    <h2> These are the {{type}} results for {{search}}! Click any one of them to see full reviews! </h2>
-          {% for title in dict %}
-              <input type="submit" value={{dict[title]['bookid']}} name = "bookID">
-              {{title}}
-              <br><br><br>
-          {% endfor %}
-    {% else %}
-          <h2> There are no {{type}} reviews to display for {{search}}! </h2>
-    {% endif %}
+  {{review | safe}}
 
     {% set messages = get_flashed_messages() %}
     {% for message in messages %}

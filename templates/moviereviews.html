@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block body %}
+<body class = "withNav">
+        <div class = "container">
+                <nav class="navbar navbar-expand-lg fixed-top" style="background-color:rgba(240, 248, 255,0.4)" >
+                    <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span> -->
+                    <div id="navbarNav">
+                            <ul class = "nav nav-pills nav-fill">
+                              <li class = "nav-item">
+                                  <a class = "nav-link" href = "{{ url_for('root') }}"> Search Another Title </a>
+                              </li>
+                              <li class = "nav-item">
+                                  <a class = "nav-link" href = "{{ url_for('searched') }}"> Home </a>
+                              </li>
+                                <li class = "nav-item">
+                                    <a class = "nav-link active" href = "{{ url_for('searchedmovie') }}"> All Movie Reviews </a>
+                                </li>
+                                <li class = "nav-item">
+                                    <a class = "nav-link" href = "{{ url_for('searchedbook') }}"> All Book Reviews </a>
+                                </li>
+                            </ul>
+                        </div>
+                </nav>
+            </div>
+
+    {% if dict != None %}
+    <h2> These are the {{type}} reviews for "{{search}}"! Click any one of them to see the full review! </h2> <br>
+          {% for title in dict %}
+
+          {% if dict[title]['num_ratings'] != "0" %}
+              <form action="{{dict[title]['reviewLink']}}" method="post">
+                <input type="hidden" value="{{dict[title]['reviewLink']}}" name="reviewLink">
+                <input type="submit" value="{{title}}" name = "movie">
+              </form> <br>
+              <b>Review Title: </b> {{dict[title]['reviewTitle']}} <br>
+              <b>Author:</b> {{dict[title]['reviewAuthor']}} <br>
+              <b>Summary:</b> {{dict[title]['summary']}} <br>
+              <img src="{{dict[title]['image_url']}}" alt="Image Not Available">
+
+
+              <br><br> <br>
+              {% endif %}
+
+          {% endfor %}
+
+    {% else %}
+          <h2> There are no {{type}} reviews to display for {{search}}! </h2>
+    {% endif %}
+
+    {% set messages = get_flashed_messages() %}
+    {% for message in messages %}
+        <h3 class = "flash">{{message}}</h3>
+    {% endfor %}
+</body>
+{% endblock %}
