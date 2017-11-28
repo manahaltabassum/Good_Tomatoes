@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block body %}
-<body>
+<body class = "withNav">
         <div class = "container">
-                <nav class="navbar navbar-expand-lg fixed-top" style="background-color:rgba(240, 248, 255,0.4)" >
+                <nav class="navbar navbar-expand-lg fixed-top justify-content-between" style="background-color:rgba(240, 248, 255,0.4)" >
                     <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span> -->
                     <div id="navbarNav">
                             <ul class = "nav nav-pills nav-fill">
@@ -11,16 +11,77 @@
                                     <a class = "nav-link" href = "{{ url_for('root') }}"> Home </a>
                                 </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link " href = "{{ url_for('moviepage') }}"> Movie Review </a>
+                                    <a class = "nav-link " href = "{{ url_for('moviepage') }}">Movie Review </a>
                                 </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link active" href = "{{ url_for('bookpage') }}"> Book Review </a>
+                                    <a class = "nav-link active" href = "{{ url_for('bookpage') }}">Book Review </a>
                                 </li>
                             </ul>
                         </div>
+                                <form action="/searched" method="post" class = "form-inline right">
+                                    <div class = "input-group">
+                                    <span class = "input-group-addon" id = "basi-addon1">temp</span>
+                                    <input type="text" name="q" class="form-control textField left" placeholder="Type a title!" required >
+                                    <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left">
+                                </div>
+                                </form>
                 </nav>
             </div>
+<!--
+{% set bookDict = bookSearch %}
+<!-- {{bookDict}}
+{% set bookTitle = bookDict.keys()[0] %}
+{{bookDict[bookTitle]}}
+{% set bookID = bookDict[bookTitle]["book_id"] %}
+{{bookID}}
+-->
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#firstMovie">
+        Movie Review
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="firstMovie" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="firstMovieTitle">Insert Movie Title</h4>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            <div class="modal-body">
+              Movie stuff 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#firstBook">
+            Book Review
+          </button>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="firstBook" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="firstBookTitle">Searched Movie: {{title}}</h4>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-body">
+                  Book stuff 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+<!--
     <form action="/searchedbook" method="post">
           <input type="hidden" name="q" form="form" value = {{title}}>
           <input type="submit" value="See Book Reviews!">
@@ -30,6 +91,6 @@
           <input type="hidden" name="q" form="form" value = {{title}}>
           <input type="submit" value="See Movie Reviews!">
     </form>
-    
+-->
 </body>
 {% endblock %}

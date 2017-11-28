@@ -21,8 +21,8 @@
             </script>
     </head>
         {% block body %}
-        <body>
-                <div class = "container">
+        <body class = "withNav">
+                <div class = "container" id = "welcomeToUs">
                         <nav class="navbar navbar-expand-lg fixed-top" style="background-color:rgba(240, 248, 255,0.4)" >
                             <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span> -->
                             <div id="navbarNav">
@@ -31,10 +31,10 @@
                                             <a class = "nav-link active " href = "{{ url_for('root') }}"> Home </a>
                                         </li>
                                         <li class = "nav-item">
-                                            <a class = "nav-link " href = "{{ url_for('movie') }}"> Movie Review </a>
+                                            <a class = "nav-link " href = "{{ url_for('moviepage') }}"> Movie Review </a>
                                         </li>
                                         <li class = "nav-item">
-                                            <a class = "nav-link" href = "{{ url_for('book') }}"> Book Review </a>
+                                            <a class = "nav-link" href = "{{ url_for('bookpage') }}"> Book Review </a>
                                         </li>
                                     </ul>
                                 </div>
