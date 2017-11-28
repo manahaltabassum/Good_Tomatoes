@@ -36,26 +36,6 @@ def search(query):
 '''Takes in the title and author of the book and returns a dict
 of search results that is more specific than the regular search'''
 def advancedSearch(title, author):
-    '''
-    #results = getResultsDict(search(title))
-    results = search(title)
-    auth = author.lower()
-    auth.replace(' ','')
-    #print auth
-    #print isinstance(results, dict)
-    #print json.dumps(results, indent=2)
-    new_dict = {}
-    for key in results:
-        #print results[key]['author'].lower()
-        if ((results[key]['author'].lower()) == auth):
-            #print True
-            val = results[key]
-            new_dict[key] = val
-'''
-    '''
-    for key, val in new_dict.items():
-        print key, '=>', val
-    '''
     auth = author.split()
     #print auth
     for x in range(len(auth)):
@@ -89,31 +69,25 @@ def getResultsDict(info):
     counter = 0
     results = {}
     while (counter < num_results):
-        key = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['title']
-        #val = []
-        val = {}
-        author = str(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['author']['name'])
-        val['author'] = author
-        #val.append(unicode(author).encode('utf-8'))
-        rating = info['GoodreadsResponse']['search']['results']['work'][counter]['average_rating']
-        val['rating'] = str(rating)
-        #val.append(str(rating))
-        num_ratings = info['GoodreadsResponse']['search']['results']['work'][counter]['ratings_count']['#text']
-        val['num_ratings'] = str(num_ratings)
-        #val.append(str(num_ratings))
-        num_reviews = info['GoodreadsResponse']['search']['results']['work'][counter]['text_reviews_count']['#text']
-        val['num_reviews'] = str(num_reviews)
-        #val.append(str(num_reviews))
-        image_url = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['image_url']
-        val['image_url'] = str(image_url)
-        #val.append(str(image_url))
-        book_id = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['id']['#text']
-        val['book_id'] = str(book_id)
-        #val.append(str(book_id))
-        results[key] = val
-        #print key
-        #print val
-        counter += 1
+        if (int(info['GoodreadsResponse']['search']['results']['work'][counter]['ratings_count']['#text']) == 0):
+            counter +=1
+        else:
+            key = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['title']
+            val = {}
+            author = str(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['author']['name'])
+            val['author'] = author
+            rating = info['GoodreadsResponse']['search']['results']['work'][counter]['average_rating']
+            val['rating'] = str(rating)
+            num_ratings = info['GoodreadsResponse']['search']['results']['work'][counter]['ratings_count']['#text']
+            val['num_ratings'] = str(num_ratings)
+            num_reviews = info['GoodreadsResponse']['search']['results']['work'][counter]['text_reviews_count']['#text']
+            val['num_reviews'] = str(num_reviews)
+            image_url = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['image_url']
+            val['image_url'] = str(image_url)
+            book_id = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['id']['#text']
+            val['book_id'] = str(book_id)
+            results[key] = val
+            counter += 1
     #print len(results)
     #for key, val in results.items():
         #print key, '=>', val
@@ -135,6 +109,25 @@ def getReview(bookID):
     #return (d)
 
 
+
+'''Takes in a dictionary and traverses through it
+to give you the best entry which is determined by the greatest
+number of ratings. It returns a dictionary with one key.''' 
+def getBest(info):
+    best_result = None
+    best_num_ratings = 0
+    result = {}
+    for key in info:
+        print info[key]['num_ratings']
+        if (int(info[key]['num_ratings']) > best_num_ratings):
+            best_result = key
+            print best_result
+            best_num_ratings = int(info[key]['num_ratings'])
+            print best_num_ratings
+    result[best_result] = info[best_result]
+    return result
+
+
 #TEST CASES
 
 #print search('The+Fault+in+Our+Stars')
@@ -148,3 +141,4 @@ def getReview(bookID):
 #print advancedSearch('we were liars','e lockhart')
 #print getReview(11870085)
 #print search('love')
+#print getBest(search('The Fault in Our Stars'))
