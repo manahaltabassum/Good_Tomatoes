@@ -20,15 +20,34 @@ dict of results which has not been filtered through'''
 def search(query):
     url = 'https://www.goodreads.com/search/index.xml'
     q = query
-    info_d = {'key': app_key, 'q': q}
+    info_d = {'key': app_key, 'q': q, 'page': 1}
     r = requests.get(url, params=info_d)
     #print r.url
     #return r
     info = r.text
     d = xmltodict.parse(info)
+    total_results = d['GoodreadsResponse']['search']['total-results']
+    print 'total-results= ' + total_results
+    num_pages = ((int(total_results))/20) + 1
+    print 'total-pages= ' + str(num_pages)
+    results = {}
+    counter = 1
+    while (counter < (num_pages+1)):
+        search = {'key': app_key, 'q': q, 'page': counter}
+        r = requests.get(url, params=search)
+        #print r.url
+        info = r.text
+        d = xmltodict.parse(info)
+        more_results = getResultsDict(d)
+        #print more_results
+        for key in more_results:
+            results[key] = more_results[key]
+        counter += 1
     #print isinstance(d, dict)
     #print json.dumps(d, indent=2)
-    return getResultsDict(d)
+    #return getResultsDict(d)
+    #print len(results)
+    return results
 
 
 
@@ -62,10 +81,12 @@ def advancedSearch(title, author):
 '''Builds the dictionary of results which is cleaner than that
 returned by the goodreads API. Check above for the structure.'''
 def getResultsDict(info):
-    num_results = int(info['GoodreadsResponse']['search']['results-end'])
-    print ('num results = ' + str(num_results))
+    end_results = int(info['GoodreadsResponse']['search']['results-end'])
+    start_results = int(info['GoodreadsResponse']['search']['results-start'])
+    num_results = (end_results - start_results) + 1
+    #print ('num results = ' + str(num_results))
     if (num_results == 0):
-        return None
+        return {}
     counter = 0
     results = {}
     while (counter < num_results):
@@ -118,12 +139,12 @@ def getBest(info):
     best_num_ratings = 0
     result = {}
     for key in info:
-        print info[key]['num_ratings']
+        #print info[key]['num_ratings']
         if (int(info[key]['num_ratings']) > best_num_ratings):
             best_result = key
-            print best_result
+            #print best_result
             best_num_ratings = int(info[key]['num_ratings'])
-            print best_num_ratings
+            #print best_num_ratings
     result[best_result] = info[best_result]
     return result
 

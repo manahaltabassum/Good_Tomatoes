@@ -98,3 +98,6 @@ added getBest method to book.py
 manahalT -- 2017-11-28 13:11:46
 fixed search to get rid of 0 rating entries in books.py
 
+manahalT -- 2017-11-28 13:54:28
+updated search in book.py to include all search results
+
