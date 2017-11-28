@@ -11,7 +11,7 @@
                                   <a class = "nav-link" href = "{{ url_for('root') }}"> Search Another Title </a>
                               </li>
                               <li class = "nav-item">
-                                  <a class = "nav-link active" href = "{{ url_for('searched') }}"> Home </a>
+                                  <a class = "nav-link " href = "{{ url_for('searched') }}"> Home </a>
                               </li>
                                 <li class = "nav-item">
                                     <a class = "nav-link " href = "{{ url_for('searchedmovie') }}"> All Movie Reviews </a>
@@ -41,7 +41,6 @@
 
           {% for title in dict %}
 
-          {% if dict[title]['num_ratings'] != "0" %}
               <form action="/fullbook" method="post">
                 <input type="hidden" value="{{dict[title]['book_id']}}" name="bookID">
                 <input type="submit" value="{{title}}" name = "book">
@@ -56,7 +55,6 @@
               <img src="{{dict[title]['image_url']}}" alt="Image Not Available">
 
               <br><br> <br>
-              {% endif %}
 
           {% endfor %}
 

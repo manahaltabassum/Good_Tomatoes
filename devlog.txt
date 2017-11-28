@@ -92,9 +92,9 @@ fully functioning now and displays reviews correctly but still needs to be style
 
 angelicaZ -- 2017-11-27 12:32:18
 implemented advanced search for book reviews (might still be a bit buggy though)
+
 manahalT -- 2017-11-28 13:03:41
 added getBest method to book.py
 
 manahalT -- 2017-11-28 13:11:46
 fixed search to get rid of 0 rating entries in books.py
-
