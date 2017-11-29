@@ -35,7 +35,7 @@
                                     <div class = "input-group">
                                     <span class = "input-group-addon" id = "basi-addon1">Search</span>
                                     <input type="text" name="q" class="form-control textField left" placeholder="Type a title!" required >
-                                    <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left fillIn">
+                                    <input type="submit" value="Enter" formmethod="post" class="squashButton btn btn-secondary left fillIn">
                                 </div>
                                 </form>
                         </div>
@@ -64,7 +64,6 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h4 class="modal-title" id="firstBookTitle">Book Title: <br> {{book[0]}}</h4>
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                     <div class="modal-body">
                         <b>Author:</b> {{book[1]['author']}} <br>
@@ -101,7 +100,6 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h4 class="modal-title" id="firstMovieTitle">Movie Title: <br> {{movie[0]}}</h4>
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                     <div class="modal-body">
                         <b>Review Title: </b> {{movie[1]['reviewTitle']}} <br>

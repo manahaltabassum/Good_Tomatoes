@@ -35,14 +35,14 @@
                                 <div class = "input-group">
                                 <span class = "input-group-addon" id = "basi-addon1">Filter By </span>
                                 <input type="text" name="author" class="form-control textField left" placeholder="Author's name" required >
-                                <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left">
+                                <input type="submit" value="Enter" formmethod="post" class="squashButton btn btn-secondary left">
                             </div>
                             </form>
                                 <form action="/searched" method="post" class = "form-inline right">
                                     <div class = "input-group">
                                     <span class = "input-group-addon" id = "basi-addon1">Search</span>
                                     <input type="text" name="q" class="form-control textField left" placeholder="Type a title!" required >
-                                    <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left">
+                                    <input type="submit" value="Enter" formmethod="post" class="squashButton btn btn-secondary left">
                                 </div>
                                 </form>
 				</form>
@@ -68,7 +68,7 @@
     <h3> Seeing too many results? Enter how many results you want to see: </h3>
     <form action="/searchedbook" method="post">
     <input type="number" name="numResults" min="1" step="1" required>
-    <input type="submit" value="Enter">
+    <input type="submit" value="Enter" class="squashButton btn">
     </form>
     </div>
     <br><br>
@@ -84,7 +84,7 @@
               <form action="/fullbook" method="post">
                 <input type="hidden" value="{{dict[title]['book_id']}}" name="bookID">
                 <input type="hidden" value="{{title}}" name="bookname">
-      
+
                 <span>
                         <img src = "static/images/tomatoButton.png" class="tomatoImage">
                     </span>

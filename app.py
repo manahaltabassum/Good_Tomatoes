@@ -9,6 +9,9 @@ title = None
 
 @app.route('/')
 def root ():
+    if (title != None):
+        flash ('Want to go back? Click here to see your previous search "%s"!' %(title,))
+        return render_template('welcome.html', button = 'yes')
     return render_template ('welcome.html')
 
 @app.route('/searched', methods = ['post','get'])

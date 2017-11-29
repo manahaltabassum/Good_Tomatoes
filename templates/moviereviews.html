@@ -35,7 +35,7 @@
                                     <div class = "input-group">
                                     <span class = "input-group-addon" id = "basi-addon1">Search</span>
                                     <input type="text" name="q" class="form-control textField left" placeholder="Type a title!" required >
-                                    <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left">
+                                    <input type="submit" value="Enter" formmethod="post" class="squashButton btn btn-secondary left">
                                 </div>
                                 </form>
                         </div>
@@ -45,7 +45,7 @@
     {% if dict != None %}
     <div class = "container titleTron jumbotron" style="width:75%">
     <h2> These are the {{type}} reviews for "{{search}}"! <br>Click any one of them to see the full review! </h2> <br>
-</div>      
+</div>
 <br> <br>
     {% for title in dict %}
     <div class = "containter jumbotron titleTronMovie" style="width:80%">
