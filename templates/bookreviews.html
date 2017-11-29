@@ -59,13 +59,15 @@
     <div class = "container titleTron jumbotron" style="width:75%">
     {% if num == None %}
     <h2> These are all the {{type}} results for "{{search}}"! <br> Click any one of them to see full reviews! </h2> <br>
+    {% elif num == "1" %}
+    <h2> This is the first {{type}} result for "{{search}}"! <br> Click it to see full reviews! </h2> <br>
     {% else %}
     <h2> These are the first {{num}} {{type}} results for "{{search}}"! <br> Click any one of them to see full reviews! </h2> <br>
     {% endif %}
 
     <h3> Seeing too many results? Enter how many results you want to see: </h3>
     <form action="/searchedbook" method="post">
-    <input type="number" name="numResults" required>
+    <input type="number" name="numResults" min="1" step="1" required>
     <input type="submit" value="Enter">
     </form>
     </div>
@@ -100,8 +102,13 @@
           {% endfor %}
 
     {% else %}
+
     <div class = "container titleTron jumbotron" style="width:50%">
-          <h2> There are no {{type}} results to display for "{{search}}" by the author "{{author}}"! </h2>
+        {% if author == None %}
+          <h2> There are no {{type}} results to display for "{{search}}"! </h2>
+        {% else %}
+          <h2> There are no {{type}} results to display for "{{search}}" by author "{{author}}"! </h2>
+        {% endif %}
         </div>
         <br><br>
     {% endif %}

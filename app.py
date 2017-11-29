@@ -76,7 +76,7 @@ def fullbook():
 @app.route('/<path:path>')
 def catch_all(path):
     flash ("Sorry! The page you tried to visit does not exist!")
-    return;
+    return redirect(url_for('root'))
 
 
 if __name__ == '__main__':
