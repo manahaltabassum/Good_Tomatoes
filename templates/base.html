@@ -12,34 +12,47 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
             <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/goodTomatoesCSS.css') }}">
-            <script>
-            jQuery(document).ready(function(){
-                $("#loadier").delay(1000).fadeOut(1000, function(){
-                    $("#welcomeToUs").fadeIn(1000);
-                });
-            });
-            </script>
     </head>
         {% block body %}
-        <body class = "withNav">
-                <div class = "container" id = "welcomeToUs">
-                        <nav class="navbar navbar-expand-lg fixed-top" style="background-color:rgba(240, 248, 255,0.4)" >
-                            <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span> -->
-                            <div id="navbarNav">
-                                    <ul class = "nav nav-pills nav-fill">
-                                        <li class = "nav-item">
-                                            <a class = "nav-link active " href = "{{ url_for('root') }}"> Home </a>
-                                        </li>
-                                        <li class = "nav-item">
-                                            <a class = "nav-link " href = "{{ url_for('moviepage') }}"> Movie Review </a>
-                                        </li>
-                                        <li class = "nav-item">
-                                            <a class = "nav-link" href = "{{ url_for('bookpage') }}"> Book Review </a>
-                                        </li>
-                                    </ul>
+        <div class = "container">
+                <nav class="navbar navbar-toggleable-md navbar-expand-lg fixed-top justify-content-between" style="background-color:rgba(240, 248, 255,0.4)" >
+                    <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span> -->
+                    <button class="navbar-toggler navbar-toggler-right tomatoButton btn btn-outline-success" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                          <span>
+                            <img src = "static/images/tomatoButton.png" class="tomatoImage">
+                            Click here!
+                        </span>
+                    </button>
+                    <div id="navbarNav" class = "collapse navbar-collapse">
+                            <ul class = "nav navbar-nav nav-pills mr-auto nav-fill">
+                              <!--
+                              <li class = "nav-item">
+                                  <a class = "nav-link" href = "{{ url_for('root') }}"> Search Another Title </a>
+                              </li>
+                            -->
+                            <li class = "nav-item">
+                                <a class = "nav-link upFill" href = "{{ url_for('root') }}"> Welcome </a>
+                            </li>
+                              <li class = "nav-item">
+                                  <a class = "nav-link active" href = "{{ url_for('searched') }}"> Search Results </a>
+                              </li>
+                                <li class = "nav-item">
+                                    <a class = "nav-link " href = "{{ url_for('searchedmovie') }}" name="movietitle" value = {{title}}> All Movie Reviews </a>
+                                </li>
+                                <li class = "nav-item">
+                                    <a class = "nav-link" href = "{{ url_for('searchedbook') }}" name="booktitle" value = {{title}}> All Book Reviews </a>
+                                </li>
+                            </ul>
+                                <form action="/searched" method="post" class = "form-inline right">
+                                    <div class = "input-group">
+                                    <span class = "input-group-addon" id = "basi-addon1">Search</span>
+                                    <input type="text" name="q" class="form-control textField left" placeholder="Type a title!" required >
+                                    <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left fillIn">
                                 </div>
-                        </nav>
-                    </div>
+                                </form>
+                        </div>
+                </nav>
+            </div>
             {% set messages = get_flashed_messages() %}
             {% for message in messages %}
                 <h3 class = "flash">{{message}}</h3>

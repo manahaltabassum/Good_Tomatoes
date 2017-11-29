@@ -42,7 +42,6 @@ gordonL -- 2017-11-21 21:21:57
 edited base.html
 
 manahalT -- 2017-11-24 21:42:40
-
 worked on creating a dictionary of book search results
 
 manahalT -- 2017-11-25 00:46:40
@@ -72,8 +71,14 @@ continuing to work on app.py/getting "UnicodeEncodeError: 'ascii' codec can't en
 manahalT -- 2017-11-27 13:49:40
 fixed ascii error in book.py
 
+parabS -- 2017-11-27 14:04:32
+handled empty search results in movie.py
+
 angelicaZ -- 2017-11-27 18:22:34
 changed template layouts/continued to work on app.py
+
+parabS -- 2017-11-27 18:43:52
+fixed ascii error movie.py 
 
 manahalT -- 2017-11-27 19:11:11
 finished book.py advanced search
@@ -96,7 +101,6 @@ implemented advanced search for book reviews (might still be a bit buggy though)
 manahalT -- 2017-11-28 13:03:41
 added getBest method to book.py
 
-
 manahalT -- 2017-11-28 13:11:46
 fixed search to get rid of 0 rating entries in books.py
 
@@ -105,3 +109,27 @@ updated search in book.py to include all search results
 
 manahalT -- 2017-11-28 14:50:53
 added numbooks method to book.py to give number of results specified
+
+gordonL -- 2017-11-28 18:53:44
+updated nav bar + made nav bar toggle-able
+
+parabS -- 2017-11-28 20:13:39
+updated movie.py + app.py for better movie search results
+
+parabS -- 2017-11-28 20:28:16
+improved welcome page
+
+manahalT -- 2017-11-28 21:16:28
+made initial search display to best match book
+
+gordonL -- 2017-11-28 22:35:13
+pushed close-to-final templates + final css
+
+gordonL -- 2017-11-28 23:32:31
+added final changes to template + images + css
+
+parabS -- 2017-11-28 23:56:29
+utils folder and module organization
+
+parabS -- 2017-11-29 01:04:32
+dealing with random searches + final changes

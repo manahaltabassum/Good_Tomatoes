@@ -1,34 +1,53 @@
 {% extends "base.html" %}
 
 {% block body %}
-<body class = "withNav">
+<body class = "withNav fullBook">
         <div class = "container">
-                <nav class="navbar navbar-expand-lg fixed-top" style="background-color:rgba(240, 248, 255,0.4)" >
+                <nav class="navbar navbar-toggleable-md navbar-expand-lg fixed-top justify-content-between" style="background-color:rgba(240, 248, 255,0.4)" >
                     <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span> -->
-                    <div id="navbarNav">
-                            <ul class = "nav nav-pills nav-fill">
+                    <button class="navbar-toggler navbar-toggler-right tomatoButton btn btn-outline-success" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span>
+                              <img src = "static/images/tomatoButton.png" class="tomatoImage">
+                              Click here!
+                          </span>
+                      </button>
+                    <div id="navbarNav" class = "collapse navbar-collapse">
+                            <ul class = "nav navbar-nav nav-pills mr-auto nav-fill">
+                              <!--
                               <li class = "nav-item">
                                   <a class = "nav-link" href = "{{ url_for('root') }}"> Search Another Title </a>
                               </li>
+                            -->
+                            <li class = "nav-item">
+                                <a class = "nav-link" href = "{{ url_for('root') }}"> Welcome </a>
+                            </li>
                               <li class = "nav-item">
-                                  <a class = "nav-link" href = "{{ url_for('searched') }}"> Home </a>
+                                  <a class = "nav-link" href = "{{ url_for('searched') }}"> Search Results </a>
                               </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link" href = "{{ url_for('searchedmovie') }}"> All Movie Reviews </a>
+                                    <a class = "nav-link " href = "{{ url_for('searchedmovie') }}" name="movietitle" value = {{title}}> All Movie Reviews </a>
                                 </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link" href = "{{ url_for('searchedbook') }}"> All Book Reviews </a>
+                                    <a class = "nav-link active" href = "{{ url_for('searchedbook') }}" name="booktitle" value = {{title}}> All Book Reviews </a>
                                 </li>
                             </ul>
+                                <form action="/searched" method="post" class = "form-inline right">
+                                    <div class = "input-group">
+                                    <span class = "input-group-addon" id = "basi-addon1">Search</span>
+                                    <input type="text" name="q" class="form-control textField left" placeholder="Type a title!" required >
+                                    <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left">
+                                </div>
+                                </form>
                         </div>
                 </nav>
             </div>
-
+<div class = "container jumbotron titleTronBook" style="display:block; margin: auto auto;width:44%">
   {{review | safe}}
 
     {% set messages = get_flashed_messages() %}
     {% for message in messages %}
         <h3 class = "flash">{{message}}</h3>
     {% endfor %}
+</div>
 </body>
 {% endblock %}

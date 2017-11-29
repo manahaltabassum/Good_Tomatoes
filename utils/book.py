@@ -27,9 +27,19 @@ def search(query):
     info = r.text
     d = xmltodict.parse(info)
     total_results = d['GoodreadsResponse']['search']['total-results']
+<<<<<<< HEAD:book.py
     #print 'total-results= ' + total_results
     num_pages = ((int(total_results))/20) + 1
     #print 'total-pages= ' + str(num_pages)
+=======
+    if (int(total_results) == 0):
+        return None
+    #print 'total-results= ' + total_results
+    num_pages = ((int(total_results))/20) + 1
+    #print 'total-pages= ' + str(num_pages)
+    if (num_pages > 10):
+        num_pages = 10
+>>>>>>> 3b2fd8e9afb1cf49b6f6ed1a809feb69857c312e:utils/book.py
     results = {}
     counter = 1
     while (counter < (num_pages+1)):
@@ -135,6 +145,8 @@ def getReview(bookID):
 to give you the best entry which is determined by the greatest
 number of ratings. It returns a dictionary with one key.'''
 def getBest(info):
+    if (info == {}):
+        return None
     best_result = None
     best_num_ratings = 0
     result = {}

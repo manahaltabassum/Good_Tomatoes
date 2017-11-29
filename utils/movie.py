@@ -37,6 +37,8 @@ def advancedSearch(name):
 than the one returned by the NYTimes API. The name of the movie is the
 key and the review information is the value as a subdict'''
 def getResultsDict(info):
+    if(info == {}):
+        return None
     ans = {}
     for entry in info['results']:
         #making the entries keys strings to
