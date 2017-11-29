@@ -27,8 +27,8 @@ def searched():
         best_book = book.search(title).items()[0]
     else:
         best_book = None;
-    if (movie.search(title) != None):
-        best_movie = movie.search(title).items()[0]
+    if (movie.advancedSearch(title) != None):
+        best_movie = movie.advancedSearch(title).items()[0]
     else:
         best_movie = None;
     return render_template("searched.html", title=title, book = best_book, movie = best_movie)
