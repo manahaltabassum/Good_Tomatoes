@@ -5,8 +5,8 @@
         <div class = "container">
                 <nav class="navbar navbar-toggleable-md navbar-expand-lg fixed-top justify-content-between" style="background-color:rgba(240, 248, 255,0.4)" >
                     <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span> -->
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class = "btn btn-outline-success">
+                    <button class="navbar-toggler navbar-toggler-right tomatoButton btn btn-outline-success" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                          <span>
                             <img src = "static/images/tomatoButton.png" class="tomatoImage">
                             Click here!
                         </span>
@@ -19,7 +19,7 @@
                               </li>
                             -->
                             <li class = "nav-item">
-                                <a class = "nav-link" href = "{{ url_for('root') }}"> Root </a>
+                                <a class = "nav-link upFill" href = "{{ url_for('root') }}"> Root </a>
                             </li>
                               <li class = "nav-item">
                                   <a class = "nav-link active" href = "{{ url_for('searched') }}"> Home </a>
@@ -35,89 +35,100 @@
                                     <div class = "input-group">
                                     <span class = "input-group-addon" id = "basi-addon1">Search</span>
                                     <input type="text" name="q" class="form-control textField left" placeholder="Type a title!" required >
-                                    <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left">
+                                    <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left fillIn">
                                 </div>
                                 </form>
                         </div>
                 </nav>
             </div>
 
-<h2> You have searched for "{{title}}"! </h2> <br> <br>
-
-<!--
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#firstMovie">
-        Movie Review
-      </button>
-      <div class="modal fade" id="firstMovie" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="firstMovieTitle">Insert Movie Title</h4>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-            <div class="modal-body">
-              Movie stuff
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+<div class = "container titleTron jumbotron" style="width:50%">
+            <h2> You have searched for "{{title}}"! </h2>
           </div>
-        </div>
-      </div>
+          <br> <br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 titleTron">
+            {% if book != None %}
+            <h3> Most Relevant Book Review Result: </h3>
 
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#firstBook">
-            Book Review
-          </button>
-
-          <div class="modal fade" id="firstBook" tabindex="-1">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title" id="firstBookTitle">Searched Movie: {{title}}</h4>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-                <div class="modal-body">
-                  Book stuff
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="tomatoButton btn btn-outline-succes" data-toggle="modal" data-target="#firstBook">
+                <span>
+                    <img src = "static/images/tomatoButton.png" class="tomatoImage">
+                    Book Review!
+                </span>
+                    </button>
+    
+              <div class="modal fade" id="firstBook" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="firstBookTitle">Book Title: <br> {{book[0]}}</h4>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    <div class="modal-body">
+                        <b>Author:</b> {{book[1]['author']}} <br>
+                        <b>Avergage Rating:</b> {{book[1]['rating']}} <br>
+                        <b>Number of Ratings:</b> {{book[1]['num_ratings']}} <br>
+                        <b>Number of Reviews:</b> {{book[1]['num_reviews']}} <br>
+                        <img src="{{book[1]['image_url']}}" alt="Image Not Available"> <br><br><br>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <form action="/fullbook" method="post">
+                        <input type="hidden" value="{{book[1]['book_id']}}" name="bookID">
+                        <input type="submit" value="Look at all reviews" name = "book">
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            {% else %}
+            <h2> There are no book results to display for "{{title}}"! </h2>
+            {% endif %}
+        </div>
+        <div class="col-lg-6 titleTron">
+            {% if movie != None %}
+            <h3> Most Relevant Movie Review Result: </h3>
+            <button type="button" class="tomatoButton btn btn-outline-succes" data-toggle="modal" data-target="#firstMovie">
+                <img src = "static/images/tomatoButton.png" class="tomatoImage">  
+              Movie Review!
+              </button>
 
--->
+              <div class="modal fade" id="firstMovie" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="firstMovieTitle">Movie Title: <br> {{movie[0]}}</h4>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    <div class="modal-body">
+                        <b>Review Title: </b> {{movie[1]['reviewTitle']}} <br>
+                        <b>Author:</b> {{movie[1]['reviewAuthor']}} <br>
+                        <b>Summary:</b> {{movie[1]['summary']}} <br>
+                        <img src="{{movie[1]['image_url']}}" alt="Image Not Available">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <form action="{{movie[1]['reviewLink']}}" method="post">
+                          <input type="hidden" value="{{movie[1]['reviewLink']}}" name="reviewLink">
+                          <input type="submit" value="Read full review" name = "movie">
+                        </form> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% else %}
+            <h2> There are no movie results to display for "{{title}}"! </h2>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
-          <h3> Most Relevant Book Review Result: </h3>
+          
 
-          {% if book != None %}
-          <form action="/fullbook" method="post">
-            <input type="hidden" value="{{book[1]['book_id']}}" name="bookID">
-            <input type="submit" value="{{book[0]}}" name = "book">
-          </form> <br>
-          <b>Author:</b> {{book[1]['author']}} <br>
-          <b>Avergage Rating:</b> {{book[1]['rating']}} <br>
-          <b>Number of Ratings:</b> {{book[1]['num_ratings']}} <br>
-          <b>Number of Reviews:</b> {{book[1]['num_reviews']}} <br>
-          <img src="{{book[1]['image_url']}}" alt="Image Not Available"> <br><br><br>
-          {% else %}
-          <h2> There are no book results to display for "{{title}}"! </h2>
-          {% endif %}
 
-          {% if movie != None %}
-          <h3> Most Relevant Movie Review Result: </h3>
-          <form action="{{movie[1]['reviewLink']}}" method="post">
-            <input type="hidden" value="{{movie[1]['reviewLink']}}" name="reviewLink">
-            <input type="submit" value="{{movie[0]}}" name = "movie">
-          </form> <br>
-          <b>Review Title: </b> {{movie[1]['reviewTitle']}} <br>
-          <b>Author:</b> {{movie[1]['reviewAuthor']}} <br>
-          <b>Summary:</b> {{movie[1]['summary']}} <br>
-          <img src="{{movie[1]['image_url']}}" alt="Image Not Available">
-          {% else %}
-          <h2> There are no movie results to display for "{{title}}"! </h2>
-          {% endif %}
+          
 
 
 <!--

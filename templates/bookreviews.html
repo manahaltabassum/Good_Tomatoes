@@ -5,12 +5,12 @@
         <div class = "container">
                 <nav class="navbar navbar-toggleable-md navbar-expand-lg fixed-top justify-content-between" style="background-color:rgba(240, 248, 255,0.4)" >
                     <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span> -->
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class = "btn btn-outline-success">
-                            <img src = "static/images/tomatoButton.png" class="tomatoImage">
-                            Click here!
-                        </span>
-                    </button>
+                    <button class="navbar-toggler navbar-toggler-right tomatoButton btn btn-outline-success" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span>
+                              <img src = "static/images/tomatoButton.png" class="tomatoImage">
+                              Click here!
+                          </span>
+                      </button>
                     <div id="navbarNav" class = "collapse navbar-collapse">
                             <ul class = "nav navbar-nav nav-pills mr-auto nav-fill">
                               <!--
@@ -48,48 +48,26 @@
                         </div>
                 </nav>
             </div>
-    <!--
-        <div class = "container">
-                <nav class="navbar navbar-expand-lg fixed-top" style="background-color:rgba(240, 248, 255,0.4)" >
-                    <!-- <span class = "nav-brand brand" id = "top"> Good Tomatoes </span>
-                    <div id="navbarNav">
-                            <ul class = "nav nav-pills nav-fill">
-                              <li class = "nav-item">
-                                  <a class = "nav-link" href = "{{ url_for('root') }}"> Search Another Title </a>
-                              </li>
-                              <li class = "nav-item">
-                                  <a class = "nav-link " href = "{{ url_for('searched') }}"> Home </a>
-                              </li>
-                                <li class = "nav-item">
-                                    <a class = "nav-link " href = "{{ url_for('searchedmovie') }}"> All Movie Reviews </a>
-                                </li>
-                                <li class = "nav-item">
-                                    <a class = "nav-link active" href = "{{ url_for('searchedbook') }}"> All Book Reviews </a>
-                                </li>
-                            </ul>
-                        </div>
 
-                        <form action="/searchedbook" method="post" class = "form-inline right">
-                            <div class = "input-group">
-                            <span class = "input-group-addon" id = "basi-addon1">Advanced Search </span>
-                            <input type="text" name="author" class="form-control textField left" placeholder="Author's name" required >
-                            <input type="submit" value="Search!" formmethod="post" class="squashButton btn btn-secondary left">
-                        </div>
-                        </form>
-                </nav>
-            </div>
-        -->
     {% if dict != None %}
-    <h2> These are the {{type}} results for "{{search}}"! Click any one of them to see full reviews! </h2> <br>
-
+    <div class = "container titleTron jumbotron" style="width:75%">
+    <h2> These are the {{type}} results for "{{search}}"! <br> Click any one of them to see full reviews! </h2> <br>
+    </div>
+    <br><br>
     {% if author != None %}
+    <div class = "container titleTron jumbotron" style="width:50%">
     <h3> Only displaying books by the author {{author}}! </h3>
+    </div>
+    <br><br>
     {% endif %}
 
           {% for title in dict %}
-
+    <div class = "containter jumbotron titleTronBook" style="width:80%">
               <form action="/fullbook" method="post">
                 <input type="hidden" value="{{dict[title]['book_id']}}" name="bookID">
+                <span>
+                        <img src = "static/images/tomatoButton.png" class="tomatoImage">
+                    </span>
                 <input type="submit" value="{{title}}" name = "book">
               </form> <br>
 
@@ -101,12 +79,15 @@
 
               <img src="{{dict[title]['image_url']}}" alt="Image Not Available">
 
-              <br><br> <br>
-
+            </div>
+            <br><br><br>
           {% endfor %}
 
     {% else %}
+    <div class = "container titleTron jumbotron" style="width:50%">
           <h2> There are no {{type}} results to display for "{{search}}"! </h2>
+        </div>
+        <br><br>
     {% endif %}
 
     {% set messages = get_flashed_messages() %}
