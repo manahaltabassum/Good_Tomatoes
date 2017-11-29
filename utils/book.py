@@ -139,6 +139,8 @@ def getReview(bookID):
 to give you the best entry which is determined by the greatest
 number of ratings. It returns a dictionary with one key.''' 
 def getBest(info):
+    if (info == {}):
+        return None
     best_result = None
     best_num_ratings = 0
     result = {}

@@ -118,6 +118,7 @@ updated movie.py + app.py for better movie search results
 
 parabS -- 2017-11-28 20:28:16
 improved welcome page
+
 manahalT -- 2017-11-28 21:16:28
 made initial search display to best match book
 
@@ -127,3 +128,8 @@ pushed close-to-final templates + final css
 gordonL -- 2017-11-28 23:32:31
 added final changes to template + images + css
 
+parabS -- 2017-11-28 23:56:29
+utils folder and module organization
+
+parabS -- 2017-11-29 01:04:32
+dealing with random searches + final changes

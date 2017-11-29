@@ -8,27 +8,20 @@ title = None
 @app.route('/')
 def root ():
     return render_template ('welcome.html')
-'''
-@app.route('/searched', methods = ['post','get'])
-def searched():
-    title = request.form['q']
-    bookDict = book.search(title)
-    bookTitle = bookDict.keys()[0]
-    bookID = bookDict[bookTitle]["book_id"]
-    return render_template("searched.html", title=title, bookSearch = bookDict, bkTitle = bookTitle, bkID = bookID)
-'''
 
 @app.route('/searched', methods = ['post','get'])
 def searched():
     global title
     if 'q' in request.form:
         title = request.form['q']
-    if (book.search(title) != None):
-        best_book = book.getBest(book.search(title)).items()[0]
+    bookdict = book.search(title)
+    if (bookdict != None and bookdict != {}):
+        best_book = book.getBest(bookdict).items()[0]
     else:
         best_book = None;
-    if (movie.advancedSearch(title) != None):
-        best_movie = movie.advancedSearch(title).items()[0]
+    moviedict = movie.advancedSearch(title)
+    if (moviedict != None and moviedict != {}):
+        best_movie = moviedict.items()[0]
     else:
         best_movie = None;
     return render_template("searched.html", title=title, book = best_book, movie = best_movie)

@@ -19,10 +19,10 @@
                               </li>
                             -->
                             <li class = "nav-item">
-                                <a class = "nav-link" href = "{{ url_for('root') }}"> Root </a>
+                                <a class = "nav-link" href = "{{ url_for('root') }}"> Welcome </a>
                             </li>
                               <li class = "nav-item">
-                                  <a class = "nav-link" href = "{{ url_for('searched') }}"> Home </a>
+                                  <a class = "nav-link" href = "{{ url_for('searched') }}"> Search Results </a>
                               </li>
                                 <li class = "nav-item">
                                     <a class = "nav-link " href = "{{ url_for('searchedmovie') }}" name="movietitle" value = {{title}}> All Movie Reviews </a>
@@ -33,7 +33,7 @@
                             </ul>
                             <form action="/searchedbook" method="post" class = "form-inline left ">
                                 <div class = "input-group">
-                                <span class = "input-group-addon" id = "basi-addon1">Advanced Search </span>
+                                <span class = "input-group-addon" id = "basi-addon1">Filter By </span>
                                 <input type="text" name="author" class="form-control textField left" placeholder="Author's name" required >
                                 <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left">
                             </div>
@@ -45,18 +45,24 @@
                                     <input type="submit" value="Squash!" formmethod="post" class="squashButton btn btn-secondary left">
                                 </div>
                                 </form>
+				</form>
                         </div>
                 </nav>
             </div>
 
-    {% if dict != None %}
+    {% if dict == {} %}
+    <div class = "container titleTron jumbotron" style="width:50%">
+    <h2> There are no {{type}} results to display for "{{search}}" </h2>
+    </div>
+    <br><br>
+    {% elif dict != None %}
     <div class = "container titleTron jumbotron" style="width:75%">
     <h2> These are the {{type}} results for "{{search}}"! <br> Click any one of them to see full reviews! </h2> <br>
     </div>
     <br><br>
     {% if author != None %}
     <div class = "container titleTron jumbotron" style="width:50%">
-    <h3> Only displaying books by the author {{author}}! </h3>
+    <h3> Only displaying books by the author "{{author}}"! </h3>
     </div>
     <br><br>
     {% endif %}
@@ -85,7 +91,7 @@
 
     {% else %}
     <div class = "container titleTron jumbotron" style="width:50%">
-          <h2> There are no {{type}} results to display for "{{search}}"! </h2>
+          <h2> There are no {{type}} results to display for "{{search}}" by the author "{{author}}"! </h2>
         </div>
         <br><br>
     {% endif %}
