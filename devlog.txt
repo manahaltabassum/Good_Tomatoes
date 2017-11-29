@@ -121,3 +121,6 @@ improved welcome page
 manahalT -- 2017-11-28 21:16:28
 made initial search display to best match book
 
+gordonL -- 2017-11-28 22:35:13
+pushed close-to-final templates + final css
+
