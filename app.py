@@ -9,8 +9,6 @@ title = None
 
 @app.route('/')
 def root ():
-    global title 
-    title = None
     return render_template ('welcome.html')
 
 @app.route('/searched', methods = ['post','get'])
