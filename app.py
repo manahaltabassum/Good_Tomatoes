@@ -42,7 +42,7 @@ def searchedbook():
     if ('author' in request.form):
         author = request.form['author']
         search_dict = book.advancedSearch(title, author)
-
+    search_dict = book.numResults(20, search_dict)
     return render_template("bookreviews.html", type="book", search=title, dict = search_dict, author = author)
 
 @app.route('/searchedmovie', methods = ['post','get'])

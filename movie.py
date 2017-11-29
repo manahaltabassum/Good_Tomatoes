@@ -64,8 +64,8 @@ def getResultsDict(info):
 
 #example test cases
 
-dict = search('wonder')
-dict2 = advancedSearch('wonder')
+#dict = search('wonder')
+#dict2 = advancedSearch('wonder')
 #for entry in dict:
     #print entry
     #print dict[entry]

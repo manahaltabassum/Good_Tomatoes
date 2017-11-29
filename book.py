@@ -27,9 +27,9 @@ def search(query):
     info = r.text
     d = xmltodict.parse(info)
     total_results = d['GoodreadsResponse']['search']['total-results']
-    print 'total-results= ' + total_results
+    #print 'total-results= ' + total_results
     num_pages = ((int(total_results))/20) + 1
-    print 'total-pages= ' + str(num_pages)
+    #print 'total-pages= ' + str(num_pages)
     results = {}
     counter = 1
     while (counter < (num_pages+1)):
@@ -93,7 +93,7 @@ def getResultsDict(info):
         if (int(info['GoodreadsResponse']['search']['results']['work'][counter]['ratings_count']['#text']) == 0):
             counter +=1
         else:
-            key = info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['title']
+            key = str(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['title'])
             val = {}
             author = str(info['GoodreadsResponse']['search']['results']['work'][counter]['best_book']['author']['name'])
             val['author'] = author
@@ -133,7 +133,7 @@ def getReview(bookID):
 
 '''Takes in a dictionary and traverses through it
 to give you the best entry which is determined by the greatest
-number of ratings. It returns a dictionary with one key.''' 
+number of ratings. It returns a dictionary with one key.'''
 def getBest(info):
     best_result = None
     best_num_ratings = 0
@@ -169,9 +169,9 @@ def numResults(num, info):
     #print len(results)
     return results
 
-        
 
-    
+
+
 
 #TEST CASES
 
