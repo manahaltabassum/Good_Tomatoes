@@ -58,7 +58,7 @@
                     Book Review!
                 </span>
                     </button>
-    
+
               <div class="modal fade" id="firstBook" tabindex="-1">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -77,6 +77,7 @@
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       <form action="/fullbook" method="post">
                         <input type="hidden" value="{{book[1]['book_id']}}" name="bookID">
+                        <input type="hidden" value="{{book[0]}}" name="bookname">
                         <input type="submit" value="Look at all reviews" name = "book">
                       </form>
                     </div>
@@ -91,7 +92,7 @@
             {% if movie != None %}
             <h3> Most Relevant Movie Review Result: </h3>
             <button type="button" class="tomatoButton btn btn-outline-succes" data-toggle="modal" data-target="#firstMovie">
-                <img src = "static/images/tomatoButton.png" class="tomatoImage">  
+                <img src = "static/images/tomatoButton.png" class="tomatoImage">
               Movie Review!
               </button>
 
@@ -113,7 +114,7 @@
                       <form action="{{movie[1]['reviewLink']}}" method="post">
                           <input type="hidden" value="{{movie[1]['reviewLink']}}" name="reviewLink">
                           <input type="submit" value="Read full review" name = "movie">
-                        </form> 
+                        </form>
                     </div>
                   </div>
                 </div>
@@ -125,10 +126,10 @@
     </div>
 </div>
 
-          
 
 
-          
+
+
 
 
 <!--
