@@ -113,5 +113,8 @@ added numbooks method to book.py to give number of results specified
 gordonL -- 2017-11-28 18:53:44
 updated nav bar + made nav bar toggle-able
 
-parabS -- 2017-11-28 20:17:39
+parabS -- 2017-11-28 20:13:39
 updated movie.py + app.py for better movie search results
+
+parabS -- 2017-11-28 20:28:16
+improved welcome page
