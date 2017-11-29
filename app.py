@@ -24,7 +24,7 @@ def searched():
     if 'q' in request.form:
         title = request.form['q']
     if (book.search(title) != None):
-        best_book = book.search(title).items()[0]
+        best_book = book.getBest(book.search(title)).items()[0]
     else:
         best_book = None;
     if (movie.advancedSearch(title) != None):

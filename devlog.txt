@@ -118,3 +118,6 @@ updated movie.py + app.py for better movie search results
 
 parabS -- 2017-11-28 20:28:16
 improved welcome page
+manahalT -- 2017-11-28 21:16:28
+made initial search display to best match book
+
