@@ -32,6 +32,8 @@ def search(query):
     #print 'total-results= ' + total_results
     num_pages = ((int(total_results))/20) + 1
     #print 'total-pages= ' + str(num_pages)
+    if (num_pages > 10):
+        num_pages = 10
     results = {}
     counter = 1
     while (counter < (num_pages+1)):
