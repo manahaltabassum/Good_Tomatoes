@@ -14,8 +14,9 @@ def root ():
 @app.route('/searched', methods = ['post','get'])
 def searched():
     global title
-    if 'q' in request.form:
-        title = request.form['q']
+    if 'q' in request.form or title != None:
+        if 'q' in request.form:
+            title = request.form['q']
         bookdict = book.search(title)
 
         if (bookdict != None and bookdict != {}):
