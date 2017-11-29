@@ -28,31 +28,22 @@
     color: #ffffff; 
 }
 
-
-/*
-.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open>.dropdown-toggle.btn-secondary, .btn-secondary:active:focus{
-    background-color: crimson;
-    color: #ffffff; 
+.tomatoImage{
+    width: 40px;
 }
-*/
+
+.tomatoButton:hover, .tomatoButton:focus{
+    transition: .5s ease;
+    background-color:lightgreen;
+    color: white;
+}
+
+.tomatoButton:not(:focus), .tomatoButton:not(:hover){
+    border: solid 1px green;
+}
 
 
 /* Pages CSS */
-
-/*
-.searchbar input[type=text]{
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
-}
-*/
-
-#welcomeToUs{
-    background-color: red;
-}
 .welcome{
     padding-top: 0px;
     background: url("../images/nightsky.jpg");
@@ -85,7 +76,7 @@ nav > span.brand{
 
 /* Misc. CSS */
 body.withNav{
-    padding-top: 60px;
+    padding-top: 80px;
 }
 form{
     overflow:hidden;
@@ -110,27 +101,79 @@ form{
     border:5px solid lightgreen;
     text-align:center;
     transition: 1s ease;
+    padding: 10px;
 }
 
 .titleTron:hover{
-    border: 5px solid cyan;
+    border: 5px solid green;
     background-color: white;
 }
-.centerBox{
+
+.titleTronTomato{
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0px 0px 3px;
     border-radius: 2px;
     margin: auto auto;
-    padding: 35px;
     font-family: OpenSans-Light;
-    border:5px solid lightgreen;
-    width:25%;
+    border:5px solid rgb(250,128,114);
     text-align:center;
     transition: 1s ease;
+    padding: 10px;
 }
 
-.centerBox:hover{
-    border: 5px solid cyan;
+.titleTronTomato:hover{
+    border: 5px solid rgb(218, 21, 60);
+    background-color: white;
+}
+
+.titleTronBasket{
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin: auto auto;
+    font-family: OpenSans-Light;
+    border:5px solid rgb(255,222,173);
+    text-align:center;
+    transition: 1s ease;
+    padding: 10px;
+}
+
+.titleTronBasket:hover{
+    border: 5px solid  	rgb(222,184,135);
+    background-color: white;
+}
+
+.titleTronBook{
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin: auto auto;
+    font-family: OpenSans-Light;
+    border:5px solid cyan ;
+    text-align:center;
+    transition: 1s ease;
+    padding: 10px;
+}
+
+.titleTronBook:hover{
+    border: 5px solid  	rgb(153, 0, 255);
+    background-color: white;
+}
+
+.titleTronMovie{
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin: auto auto;
+    font-family: OpenSans-Light;
+    border:5px solid gray ;
+    text-align:center;
+    transition: 1s ease;
+    padding: 10px;
+}
+
+.titleTronMovie:hover{
+    border: 5px solid  	black;
     background-color: white;
 }
 .teamName{
@@ -143,167 +186,23 @@ form{
     border-bottom: 4px solid green;
 }
 
-/* Flash messages */
-.flash{
-    font-weight:bold;
-    text-align:center;
-}
-
-/* ========================================================= */
-
-
-.welcomeTitle{
-    background-color: white;
-    box-shadow: 0px 0px 3px;
-    border-radius: 2px;
-    width: 1024px;
-    margin:auto auto;
-    padding: 35px;
-    font-family: OpenSans-Light;
-    border:5px solid lightgreen;
-    transition: 1s ease;
-}
-
-.welcomeTitle:hover{
-    border: 5px solid grey;
-}
-
-.accountBox{
-    background-color: white;
-    box-shadow: 0px 0px 3px;
-    border-radius: 2px;
-    margin:auto auto;
-    font-family: OpenSans-Light;
-    border:5px solid lightBlue;
-    transition: 1s ease;
-    text-align:center;
-    overflow:hidden;
-    width:30%;
-}
-
-.accountBox:hover{
-    border-color: cyan;
-}
-
-.viewStoryBox {
-    background-color: white;
-    box-shadow: 0px 0px 3px;
-    border-radius: 2px;
-    width: 1024px;
-    max-width: 85%;
-    margin: auto;
-    margin-top: 100px;
-    margin-bottom: 50px;
-    padding: 35px;
-    font-family: OpenSans-Light;
-    border:5px solid lightgreen;
-    transition: border 1s ease;
-}
-
-.viewStoryBox:hover{
-    border: 5px solid rgb(3, 66, 3)
-}
-
-.enterTitle{
-    display:flex;
-    position:relative;
-    margin:4px auto;
-    width:30%;
-    flex-direction:row;
-    box-shadow: 1px 1px 0 green;
-    transition: 1s ease;
-}
-.optionBox{
-    background-color: white;
-    box-shadow: 0px 0px 3px;
-    width:50%;
-    border-radius: 2px;
-    margin:auto auto;
-    font-family: OpenSans-Light;
-    border:5px solid orange;
-    transition:1s ease;
-
-    overflow:hidden;
-}
-
-.optionBox:hover{
-    border-color: red;
-}
-
-/* Create new Story */
-
-.enterTitle:hover{
-    display:flex;
-    position:relative;
-    margin:4px auto;
-    width:30%;
-    flex-direction:row;
-    box-shadow: 2px 2px 0 green,
-        4px 4px 0 green,
-        6px 6px 0 green,
-        8px 8px 0 green,
-        10px 10px 0 green,
-        12px 12px 0 green,
-        14px 14px 0 green,
-        16px 16px 0 green,
-        18px 18px 0 green,
-        20px 20px 0 green;
-}
-
-.enterTitle input[type=text], .enterTitle input[type=button]{
-    display:block;
-    /*font:*/
-}
-
-.enterTitle input[type=text]{
-    flex:1;
-    padding:4px;
-    border: 4px solid green;
-
-}
-
-.enterTitle input[type=submit]{
-    padding: 2px 2px;
-    background-color:  gray ;
-    border: 4px solid gray ;
-    color: black;
-    border: none;
-}
-
-/* Login Animations + Buttons */
-.accountField{
-    padding: 10px;
-    border: none;
-    border-bottom: solid 3px #c9c9c9;
-    transition: border 1s ease;
-}
-
-.accountField:focus{
-    border: solid 5px #969696;
-}
-
-.accountField:hover:not(:focus){
-    border-bottom: solid 5px #969696;
-}
-
-.register{
+.fillIn{
     display: block;
     transition: 1s ease;
     -webkit-transition: 1s ease;
 }
-.register:hover, .register:focus{
+.fillIn:hover, .fillIn:focus{
     box-shadow: inset 0 0 0 4em pink;
     color: #333;
 }
 
-/* Buttons */
-.login{
+.merge{
     display: block;
     transition: 1s ease;
     -webkit-transition: 1s ease;
 }
 
-.login:hover, .login:focus{
+.merge:hover, .merge:focus{
     box-shadow: inset 8em 0 0 0 lightgreen,
         inset -8em 0 0 0 lightgreen;
         color: #333;
@@ -316,73 +215,23 @@ form{
 }
 
 .back:hover, .back:focus{
-    box-shadow:inset -10em 0 0 0 pink;
-    color: #333;
+    box-shadow:inset -10em 0 0 0 crimson;
+    color: white;
 }
 
-.editStoryButton{
+.upFill{
     display: block;
     transition: 1s ease;
     -webkit-transition: 1s ease;
 }
-.editStoryButton:hover, .editStoryButton:focus{
+.upFill:hover, .upFill:focus{
     box-shadow: inset 0 -8em 0 0 pink;
     color: #333;
 }
-
-.viewStory{
-    display:block;
-    transition: 1s ease;
-    -webkit-transition: 1s ease;
+/* Flash messages */
+.flash{
+    font-weight:bold;
+    text-align:center;
 }
 
-.viewStory:hover, .viewStory:focus{
-    display: block;
-    box-shadow: inset 0 -8em 0 pink;
-    color: #333;
-}
-
-.selectStory{
-    display: block;
-    transition: 1s ease;
-    -webkit-transition: 1s ease;
-}
-
-.selectStory:hover, .selectStory:focus{
-    box-shadow: inset 0 0 0 4em pink;
-    color: #333;
-}
-
-.logout{
-    display:block;
-    transition: 1s ease;
-    -webkit-transition: 1s ease;
-}
-
-.logout:hover, .logout:focus{
-    display: block;
-    box-shadow: inset 0 4em 0 pink;
-    color: #333;
-}
-
-.editText{
-    width:95%;
-    border: 2px solid lightblue;
-    transition: 1s ease;
-    color: #333;
-}
-
-.editText:hover, .editText:focus{
-    border: 4px solid cyan;
-    color: #333;
-}
-
-.editBox{
-    border: 2px solid lightblue;
-    transition: 1s ease;
-}
-
-.editBox:hover, .editBox:focus{
-    border: 4px solid cyan;
-    color: #333;
-}
+/* ========================================================= */
