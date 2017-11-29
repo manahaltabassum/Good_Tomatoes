@@ -46,10 +46,35 @@
 /* Pages CSS */
 .welcome{
     padding-top: 0px;
-    background: url("../images/nightsky.jpg");
+    background: url("../images/fuyuki.jpg");
     background-attachment: fixed;
     background-size: 100% 100%;
 }
+
+.search{
+    background: url("../images/guilty.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.book{
+    background: url("../images/yourName.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.fullBook{
+    background: url("../images/book.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.movie{
+    background: url("../images/pew.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+
 /* NavBar CSS*/
 
 nav > span.brand{
@@ -75,7 +100,7 @@ nav > span.brand{
 }
 
 /* Misc. CSS */
-body.withNav{
+.withNav{
     padding-top: 80px;
 }
 form{
