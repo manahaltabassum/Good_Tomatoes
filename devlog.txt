@@ -124,3 +124,6 @@ made initial search display to best match book
 gordonL -- 2017-11-28 22:35:13
 pushed close-to-final templates + final css
 
+gordonL -- 2017-11-28 23:32:31
+added final changes to template + images + css
+
