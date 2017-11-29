@@ -19,13 +19,13 @@
 
 .squashButton{
     background-color: white;
-    color: crimson; 
+    color: crimson;
     transition: 0.5s ease;
 }
 
 .squashButton:hover, .squashButton:active, .squashButton:focus, .squashButton:active:focus, .squashButton:hover:focus, .squashButton:focus:hover{
     background-color: crimson;
-    color: #ffffff; 
+    color: #ffffff;
 }
 
 .tomatoImage{
@@ -69,7 +69,7 @@
 }
 
 .movie{
-    background: url("../images/pew.jpg");
+    background: url("../images/yourName.jpg");
     background-attachment: fixed;
     background-size: 100% 100%;
 }
