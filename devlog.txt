@@ -135,4 +135,10 @@ parabS -- 2017-11-29 01:04:32
 dealing with random searches + final changes
 
 angelicaZ -- 2017-11-29 05:49:25
-implementing a way for users to say how many results they want to see 
+implementing a way for users to say how many results they want to see
+
+angelicaZ -- 2017-11-29 06:01:14
+made it so that if a user visits a page they are not supposed to, it redirects back to the root
+
+angelicaZ -- 2017-11-29 06:24:20
+if the user tries to visit a page that does not exist, it will redirect them back to the root
