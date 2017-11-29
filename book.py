@@ -27,9 +27,11 @@ def search(query):
     info = r.text
     d = xmltodict.parse(info)
     total_results = d['GoodreadsResponse']['search']['total-results']
-    print 'total-results= ' + total_results
+    if (int(total_results) == 0):
+        return None
+    #print 'total-results= ' + total_results
     num_pages = ((int(total_results))/20) + 1
-    print 'total-pages= ' + str(num_pages)
+    #print 'total-pages= ' + str(num_pages)
     results = {}
     counter = 1
     while (counter < (num_pages+1)):
