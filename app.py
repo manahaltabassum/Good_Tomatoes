@@ -17,15 +17,16 @@ def searched():
     if 'q' in request.form:
         title = request.form['q']
         bookdict = book.search(title)
+
         if (bookdict != None and bookdict != {}):
             best_book = book.getBest(bookdict).items()[0]
         else:
             best_book = None;
-            moviedict = movie.advancedSearch(title)
-            if (moviedict != None and moviedict != {}):
-                best_movie = moviedict.items()[0]
-            else:
-                best_movie = None;
+        moviedict = movie.advancedSearch(title)
+        if (moviedict != None and moviedict != {}):
+            best_movie = moviedict.items()[0]
+        else:
+            best_movie = None;
         return render_template("searched.html", title=title, book = best_book, movie = best_movie)
     else:
         flash("You must search a title before you can view this page!")
@@ -75,7 +76,7 @@ def fullbook():
 @app.route('/<path:path>')
 def catch_all(path):
     flash ("Sorry! The page you tried to visit does not exist!")
-    return redirect( url_for('root') )
+    return;
 
 
 if __name__ == '__main__':
