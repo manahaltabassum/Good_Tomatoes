@@ -28,7 +28,7 @@
                                     <a class = "nav-link " href = "{{ url_for('searchedmovie') }}" name="movietitle" value = {{title}}> All Movie Reviews </a>
                                 </li>
                                 <li class = "nav-item">
-                                    <a class = "nav-link active" href = "{{ url_for('searchedbook') }}" name="booktitle" value = {{title}}> All Book Reviews </a>
+                                    <a class = "nav-link" href = "{{ url_for('searchedbook') }}" name="booktitle" value = {{title}}> All Book Reviews </a>
                                 </li>
                             </ul>
                                 <form action="/searched" method="post" class = "form-inline right">
@@ -41,7 +41,14 @@
                         </div>
                 </nav>
             </div>
-<div class = "container jumbotron titleTronBook" style="display:block; margin: auto auto;width:44%">
+<div class = "container jumbotron titleTronBook" style="display:block; margin: auto auto;width:46%">
+  These are the reviews for <b>{{title}}</b>! <br> <br>
+
+  <b>Author:</b> {{dict[title]['author']}} <br>
+  <b>Avergage Rating:</b> {{dict[title]['rating']}} <br>
+  <b>Number of Ratings:</b> {{dict[title]['num_ratings']}} <br>
+  <b>Number of Reviews:</b> {{dict[title]['num_reviews']}} <br>
+
   {{review | safe}}
 
     {% set messages = get_flashed_messages() %}

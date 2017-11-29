@@ -57,7 +57,17 @@
     <br><br>
     {% elif dict != None %}
     <div class = "container titleTron jumbotron" style="width:75%">
-    <h2> These are the {{type}} results for "{{search}}"! <br> Click any one of them to see full reviews! </h2> <br>
+    {% if num == None %}
+    <h2> These are all the {{type}} results for "{{search}}"! <br> Click any one of them to see full reviews! </h2> <br>
+    {% else %}
+    <h2> These are the first {{num}} {{type}} results for "{{search}}"! <br> Click any one of them to see full reviews! </h2> <br>
+    {% endif %}
+
+    <h3> Enter how many results you want to see: </h3>
+    <form action="/searchedbook" method="post">
+    <input type="number" name="numResults" required>
+    <input type="submit" value="Enter">
+    </form>
     </div>
     <br><br>
     {% if author != None %}
@@ -71,6 +81,7 @@
     <div class = "containter jumbotron titleTronBook" style="width:80%">
               <form action="/fullbook" method="post">
                 <input type="hidden" value="{{dict[title]['book_id']}}" name="bookID">
+                <input type="hidden" value="{{title}}" name="bookname">
                 <span>
                         <img src = "static/images/tomatoButton.png" class="tomatoImage">
                     </span>
@@ -79,7 +90,6 @@
 
               <b>Author:</b> {{dict[title]['author']}} <br>
               <b>Avergage Rating:</b> {{dict[title]['rating']}} <br>
-
               <b>Number of Ratings:</b> {{dict[title]['num_ratings']}} <br>
               <b>Number of Reviews:</b> {{dict[title]['num_reviews']}} <br>
 

@@ -29,14 +29,16 @@ def searched():
 @app.route('/searchedbook', methods = ['post','get'])
 def searchedbook():
     global title
-    #bookname = request.form['q']
     search_dict = book.search(title)
     author = None;
+    numResults = None;
     if ('author' in request.form):
         author = request.form['author']
         search_dict = book.advancedSearch(title, author)
-    search_dict = book.numResults(20, search_dict)
-    return render_template("bookreviews.html", type="book", search=title, dict = search_dict, author = author)
+    if ('numResults' in request.form):
+        numResults = request.form['numResults']
+        search_dict = book.numResults(numResults, search_dict)
+    return render_template("bookreviews.html", type="book", search=title, dict = search_dict, author = author, num = numResults)
 
 @app.route('/searchedmovie', methods = ['post','get'])
 def searchedmovie():
@@ -47,9 +49,14 @@ def searchedmovie():
 
 @app.route('/fullbook', methods = ['post','get'])
 def fullbook():
-    global title
-    review = book.getReview(request.form['bookID'])
-    return render_template("fullbook.html", review = review)
+    bookname = None
+    review = None
+    if 'bookID' in request.form:
+        review = book.getReview(request.form['bookID'])
+    if 'bookname' in request.form:
+        bookname = request.form['bookname']
+    dic = book.search(title)
+    return render_template("fullbook.html", title = bookname, dict = dic, review = review)
 
 
 if __name__ == '__main__':

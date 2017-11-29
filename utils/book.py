@@ -27,11 +27,7 @@ def search(query):
     info = r.text
     d = xmltodict.parse(info)
     total_results = d['GoodreadsResponse']['search']['total-results']
-<<<<<<< HEAD:book.py
-    #print 'total-results= ' + total_results
-    num_pages = ((int(total_results))/20) + 1
-    #print 'total-pages= ' + str(num_pages)
-=======
+
     if (int(total_results) == 0):
         return None
     #print 'total-results= ' + total_results
@@ -39,7 +35,7 @@ def search(query):
     #print 'total-pages= ' + str(num_pages)
     if (num_pages > 10):
         num_pages = 10
->>>>>>> 3b2fd8e9afb1cf49b6f6ed1a809feb69857c312e:utils/book.py
+
     results = {}
     counter = 1
     while (counter < (num_pages+1)):
@@ -166,7 +162,10 @@ of results wanted and returns those number of results. If the num
 of results wanted is greater than the total possible results then
 display all results'''
 def numResults(num, info):
-    if ((len(info)) < num):
+    num = int(num)
+    if (len(info) < num):
+        print len(info)
+        print num
         return info
     if (num == 0):
         return None

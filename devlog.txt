@@ -78,7 +78,7 @@ angelicaZ -- 2017-11-27 18:22:34
 changed template layouts/continued to work on app.py
 
 parabS -- 2017-11-27 18:43:52
-fixed ascii error movie.py 
+fixed ascii error movie.py
 
 manahalT -- 2017-11-27 19:11:11
 finished book.py advanced search
@@ -133,3 +133,6 @@ utils folder and module organization
 
 parabS -- 2017-11-29 01:04:32
 dealing with random searches + final changes
+
+angelicaZ -- 2017-11-29 05:49:25
+implementing a way for users to say how many results they want to see 
